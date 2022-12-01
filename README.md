@@ -13,6 +13,8 @@
 ## Resources
 
 - [Trello](https://trello.com/b/aTTXc03p/ddd-project)
+- [Getting started with ASP](https://dotnet.microsoft.com/en-us/learn/aspnet)
+- [MariaDB home](https://mariadb.org/)
 
 ## Changelog
 
