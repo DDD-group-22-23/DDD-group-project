@@ -10,8 +10,9 @@
 
 ## System requirements
 
-- Coming Soon
-
+- .NET 6
+- MariaDB
+- Docker (recommended) - eventually
 ## Development
 
 - Coming Soon
@@ -32,4 +33,4 @@
 ## Changelog
 
 Run `./changelog` to generate the changelog after your commit, then `git add . && git commit --amend --no-edit ` to generate the changelog  
-The changelog is available [here](CHANGELOG)
+The changelog is available [here](CHANGELOG) (This will only work on systems where Bash is present, will work on Windows under WSL)
