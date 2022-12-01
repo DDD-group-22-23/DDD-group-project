@@ -1,4 +1,10 @@
-Commit: 6f8d914
+Commit: 82fea0c
+Author: Rowan Clark
+Thu Dec 1 17:08:42 2022
+Commit subject: 
+chore: add mariadb version to sys reqs along with note on OS
+
+Commit: 11bbcc7
 Author: Rowan Clark
 Thu Dec 1 12:45:47 2022
 Commit subject: 

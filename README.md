@@ -13,6 +13,9 @@
 - .NET 6
 - MariaDB
 - Docker (recommended) - eventually
+- MariaDB Server 10.10.x
+- Efforts will be taken to ensure compatibility on both Windows and Linux
+
 ## Development
 
 - Coming Soon
