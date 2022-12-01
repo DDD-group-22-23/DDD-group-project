@@ -1,4 +1,40 @@
-Commit: 691a241
+Commit: 84cd065
+Author: Rowan Clark
+Thu Dec 1 12:19:08 2022
+Commit subject: 
+add gitignore
+
+Commit: 5f063c0
+Author: Rowan Clark
+Thu Dec 1 11:33:54 2022
+Commit subject: 
+chore: asp and mariadb
+
+Commit: 7cc8805
+Author: Rowan Clark
+Thu Dec 1 11:27:35 2022
+Commit subject: 
+chore: init asp project
+
+Commit: b0404e5
+Author: Rowan Clark
+Thu Dec 1 11:12:34 2022
+Commit subject: 
+chore: add resources
+
+Commit: 10e0a17
+Author: Rowan Clark
+Thu Dec 1 11:05:57 2022
+Commit subject: 
+chore: mv changellog to non markdown to not break formatting
+
+Commit: 407a40a
+Author: Christopher Boczko
+Thu Dec 1 10:57:13 2022
+Commit subject: 
+added directories
+
+Commit: e09894a
 Author: Rowan Clark
 Thu Dec 1 11:00:55 2022
 Commit subject: 
