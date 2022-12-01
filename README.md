@@ -10,3 +10,8 @@
 
 - Coming Soon
 
+## Changelog
+
+Run `./changelog` to generate the changelog after your commit, then `git add . && git commit --amend --no-edit ` to generate the changelog  
+The changelog is available [here](CHANGELOG.md)
+
