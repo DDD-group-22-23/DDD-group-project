@@ -1,6 +1,12 @@
 # DDD-group-project
 > DDD group project files
 
+- [DDD-group-project](#ddd-group-project)
+  - [System requirements](#system-requirements)
+  - [Development](#development)
+  - [Resources](#resources)
+  - [Contributors](#contributors)
+  - [Changelog](#changelog)
 
 ## System requirements
 
@@ -15,6 +21,13 @@
 - [Trello](https://trello.com/b/aTTXc03p/ddd-project)
 - [Getting started with ASP](https://dotnet.microsoft.com/en-us/learn/aspnet)
 - [MariaDB home](https://mariadb.org/)
+
+## Contributors
+
+- [Rowan Clark](https://github.com/crimsontome) 
+- [Chris Boczko](https://github.com/admgecko)
+- [David Cain](https://github.com/deev123)
+- [Nikolai Valkamo](https://github.com/firefly599)
 
 ## Changelog
 
