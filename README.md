@@ -36,4 +36,4 @@
 ## Changelog
 
 Run `./changelog.sh` to generate the changelog after your commit, then `git add . && git commit --amend --no-edit ` to generate the changelog  
-The changelog is available [here](CHANGELOG) (This will only work on systems where Bash is present, will work on Windows under WSL)
+The changelog is available [here](CHANGELOG) (This will only work on systems where a Unix shell is present (such as Bash or zsh), will work on Windows under WSL)
