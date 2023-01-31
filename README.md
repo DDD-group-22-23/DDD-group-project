@@ -14,11 +14,11 @@
 - MariaDB
 - Docker (recommended) - eventually
 - MariaDB Server 10.10.x
-- Efforts will be taken to ensure compatibility on both Windows and Linux
+- Efforts will be taken to ensure development compatibility on both Windows and Linux
 
 ## Development
 
-- Coming Soon
+- To build the site, navigate to Source_Code/RecipeThesaurus/ and run `dotnet run`
 
 ## Resources
 
