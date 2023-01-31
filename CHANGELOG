@@ -1,4 +1,10 @@
-Commit: 82fea0c
+Commit: 60fabff
+Author: Rowan Clark
+Tue Jan 31 09:20:14 2023
+Commit subject: 
+chore: rename changelog to changelog.sh
+
+Commit: 9acaa77
 Author: Rowan Clark
 Thu Dec 1 17:08:42 2022
 Commit subject: 

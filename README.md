@@ -35,5 +35,5 @@
 
 ## Changelog
 
-Run `./changelog` to generate the changelog after your commit, then `git add . && git commit --amend --no-edit ` to generate the changelog  
+Run `./changelog.sh` to generate the changelog after your commit, then `git add . && git commit --amend --no-edit ` to generate the changelog  
 The changelog is available [here](CHANGELOG) (This will only work on systems where Bash is present, will work on Windows under WSL)
