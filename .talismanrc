@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: Source_Code/RecipeThesaurus/obj/project.nuget.cache
+  checksum: 840ebffb03bbdf172e36b1924ebfead24aee9739f2a07014be557f20e0d29505
+version: "1.0"
