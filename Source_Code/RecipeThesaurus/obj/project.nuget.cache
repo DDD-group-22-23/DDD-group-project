@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kjxTBAcY80tSzoAY7omaLy/1sY7WgiV60Ns2ooAJKG50mqy2L8bMxjzUpi3DOSpy0Z70s2MIlTN32Iua+u0Y2w==",
+  "dgSpecHash": "vWgrHwU3+MaBeaQbMIWd4H1uTdoh4QQQio68cH9nKl4Thhy8I/DCETXrZ3IajpnstEeBp623zKX+jp1v9Y069Q==",
   "success": true,
-  "projectFilePath": "/home/ctome/git/DDD-group-project/Source_Code/RecipeThesaurus/RecipeThesaurus.csproj",
+  "projectFilePath": "C:\\Users\\cbocz\\Documents\\dev\\DDD-group-project\\Source_Code\\RecipeThesaurus\\RecipeThesaurus.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
