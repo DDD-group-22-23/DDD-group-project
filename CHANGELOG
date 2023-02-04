@@ -1,4 +1,238 @@
-Commit: 6c59fbc
+Commit: d40b758
+Author: Christopher Boczko
+Sat Feb 4 12:18:40 2023
+Commit subject: 
+updated readme
+
+Commit: 9cc202f
+Author: Christopher Boczko
+Sat Feb 4 11:07:28 2023
+Commit subject: 
+changed some w/d parms
+
+Commit: c9dc3c0
+Author: Christopher Boczko
+Sat Feb 4 11:03:13 2023
+Commit subject: 
+changed paths
+
+Commit: 2d5b96e
+Author: Christopher Boczko
+Sat Feb 4 11:00:03 2023
+Commit subject: 
+changed build requirements on deploy again
+
+Commit: d50deb0
+Author: Christopher Boczko
+Sat Feb 4 10:58:29 2023
+Commit subject: 
+changed build requirements on deploy
+
+Commit: de0e6bd
+Author: Christopher Boczko
+Sat Feb 4 10:56:28 2023
+Commit subject: 
+removed some requirements on deploy
+
+Commit: 9dd8b65
+Author: Christopher Boczko
+Sat Feb 4 10:55:10 2023
+Commit subject: 
+updated workflow
+
+Commit: 01ef8e4
+Author: Christopher Boczko
+Sat Feb 4 10:54:02 2023
+Commit subject: 
+removed some w/d vars
+
+Commit: 5e4651c
+Author: Christopher Boczko
+Sat Feb 4 10:52:10 2023
+Commit subject: 
+added spaces
+
+Commit: 166d5a6
+Author: Christopher Boczko
+Sat Feb 4 10:28:27 2023
+Commit subject: 
+fixed yaml
+
+Commit: a325268
+Author: Christopher Boczko
+Sat Feb 4 10:22:56 2023
+Commit subject: 
+moved working directory
+
+Commit: c31af2d
+Author: Christopher Boczko
+Sat Feb 4 10:17:17 2023
+Commit subject: 
+moved working directory
+
+Commit: 9b0cfc4
+Author: Christopher Boczko
+Fri Feb 3 21:55:12 2023
+Commit subject: 
+changed paths
+
+Commit: 0c94bf6
+Author: Christopher Boczko
+Fri Feb 3 21:34:21 2023
+Commit subject: 
+changed relitive path of zip file
+
+Commit: 7e177f7
+Author: Christopher Boczko
+Fri Feb 3 21:28:11 2023
+Commit subject: 
+changed dotnet version and zip
+
+Commit: 00683e8
+Author: Christopher Boczko
+Fri Feb 3 21:21:09 2023
+Commit subject: 
+fixed line 86 of yaml
+
+Commit: 6623196
+Author: Christopher Boczko
+Fri Feb 3 21:14:58 2023
+Commit subject: 
+added zip to release
+
+Commit: 20aad81
+Author: Christopher Boczko
+Fri Feb 3 21:05:44 2023
+Commit subject: 
+updated built
+
+Commit: 80b719d
+Author: GitHub
+Fri Feb 3 15:38:11 2023
+Commit subject: 
+Update remove-old-artifacts.yml
+
+Commit: dfc9fe9
+Author: GitHub
+Fri Feb 3 15:07:54 2023
+Commit subject: 
+update to remove atifacts
+
+Commit: 1e3c36d
+Author: Christopher Boczko
+Fri Feb 3 11:09:03 2023
+Commit subject: 
+changed workflow to on push
+
+Commit: 7cb96e1
+Author: Christopher Boczko
+Fri Feb 3 11:04:16 2023
+Commit subject: 
+remove old artifacts
+
+Commit: 5be2f25
+Author: Christopher Boczko
+Thu Feb 2 22:26:22 2023
+Commit subject: 
+updated csproj to allow duplicate files
+
+Commit: 037c94b
+Author: Christopher Boczko
+Thu Feb 2 22:22:06 2023
+Commit subject: 
+removed conflicting css files
+
+Commit: 2141002
+Author: Christopher Boczko
+Thu Feb 2 22:13:46 2023
+Commit subject: 
+changed .net version to 5
+
+Commit: bae2e8f
+Author: Christopher Boczko
+Thu Feb 2 22:01:47 2023
+Commit subject: 
+corrected spelling in working directory
+
+Commit: 4a2edab
+Author: Christopher Boczko
+Thu Feb 2 21:58:54 2023
+Commit subject: 
+changed working dir
+
+Commit: 768dcb9
+Author: Christopher Boczko
+Thu Feb 2 21:57:29 2023
+Commit subject: 
+added working dir
+
+Commit: 15571e2
+Author: Christopher Boczko
+Thu Feb 2 21:49:09 2023
+Commit subject: 
+changed app path
+
+Commit: fe67344
+Author: Christopher Boczko
+Thu Feb 2 21:42:29 2023
+Commit subject: 
+modified git actions
+
+Commit: a04796d
+Author: Christopher Boczko
+Thu Feb 2 21:40:33 2023
+Commit subject: 
+added sln file
+
+Commit: 44086c3
+Author: Christopher Boczko
+Thu Feb 2 21:39:24 2023
+Commit subject: 
+removed temp objects
+
+Commit: df68c47
+Author: Christopher Boczko
+Thu Feb 2 21:37:27 2023
+Commit subject: 
+updated gitignore
+
+Commit: 4d54eb0
+Author: GitHub
+Thu Feb 2 20:57:16 2023
+Commit subject: 
+change source directory
+
+Commit: 9f091d3
+Author: GitHub
+Thu Feb 2 20:49:27 2023
+Commit subject: 
+changed dotnet version
+
+Commit: f2d2f97
+Author: GitHub
+Thu Feb 2 20:45:52 2023
+Commit subject: 
+changed dotnet version
+
+Commit: ae3184f
+Author: Rowan Clark
+Thu Feb 2 18:29:34 2023
+Commit subject: 
+fix(az-deploy): add fix dotnet root environment variable
+
+Commit: f0d6ed7
+Author: GitHub
+Thu Feb 2 18:12:59 2023
+Commit subject: 
+Create Github actions to deploy to azure web app
+
+Commit: d476f14
+Author: CrimsonTome
+Tue Jan 31 10:29:13 2023
+Commit subject: 
+chore: begin dev instructions
+
+Commit: 6972d2b
 Author: Rowan Clark
 Tue Jan 31 09:32:12 2023
 Commit subject: 

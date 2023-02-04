@@ -11,14 +11,14 @@
 ## System requirements
 
 - .NET 6
-- MariaDB
-- Docker (recommended) - eventually
-- MariaDB Server 10.10.x
-- Efforts will be taken to ensure development compatibility on both Windows and Linux
+- Azure Web Apps
+- MSSQL server
 
 ## Development
 
-- To build the site, navigate to Source_Code/RecipeThesaurus/ and run `dotnet run`
+- To build the site locally, navigate to Source_Code/RecipeThesaurus/ and run `dotnet run`
+
+- a push to git will trigger a github action to deploy the site - current url is https://recipethesaurus.azurewebsites.net/
 
 ## Resources
 
