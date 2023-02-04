@@ -36,40 +36,37 @@ jobs:
   build:
     runs-on: ubuntu-latest
   steps:
-      - uses: actions/checkout@v3
-        with:
-          working-directory: Source_Code/RecipeThesaurus/
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v3.0.3
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-          working-directory: Source_Code/RecipeThesaurus/
-      - name: Set up dependency caching for faster builds
-        uses: actions/cache@v3
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
-          working-directory: Source_Code/RecipeThesaurus/
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-        with:
-          working-directory: Source_Code/RecipeThesaurus/
-
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/
-        with:
-          working-directory: Source_Code/RecipeThesaurus/
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-        with:
-          working-directory: Source_Code/RecipeThesaurus/
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: .net-app
-          path: Source_Code/RecipeThesaurus/release.zip
+    - uses: actions/checkout@v3
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v3.0.3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+        working-directory: Source_Code/RecipeThesaurus/
+    - name: Set up dependency caching for faster builds
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+        working-directory: Source_Code/RecipeThesaurus/
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+      with:
+        working-directory: Source_Code/RecipeThesaurus/
+    - name: dotnet publish
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/
+      with:
+        working-directory: Source_Code/RecipeThesaurus/
+    - name: Zip artifact for deployment
+      run: zip release.zip ./* -r
+      with:
+        working-directory: Source_Code/RecipeThesaurus/
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v2
+      with:
+        name: .net-app
+        path: Source_Code/RecipeThesaurus/release.zip
 
   deploy:
     permissions:
