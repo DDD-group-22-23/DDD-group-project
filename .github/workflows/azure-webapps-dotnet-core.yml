@@ -19,9 +19,6 @@
 
 name: Build and deploy ASP.Net Core app to an Azure Web App
 
-defaults:
-  run:
-    working-directory: Source_Code/RecipeThesaurus/
 env:
   AZURE_WEBAPP_NAME: RecipeThesaurus    # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: 'Source_Code/RecipeThesaurus'      # set this to the path to your web app project, defaults to the repository root
@@ -36,6 +33,8 @@ permissions:
   contents: read
 
 jobs:
+  run:
+    working-directory: Source_Code/RecipeThesaurus/
   build:
     runs-on: ubuntu-latest
 
