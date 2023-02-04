@@ -57,8 +57,6 @@ jobs:
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
-        with:
-          working-directory: Source_Code/RecipeThesaurus/
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
