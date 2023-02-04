@@ -42,7 +42,6 @@ jobs:
         uses: actions/setup-dotnet@v3.0.3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-          working-directory: Source_Code/RecipeThesaurus/
       - name: Set up dependency caching for faster builds
         uses: actions/cache@v3
         with:
@@ -50,7 +49,6 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-          working-directory: Source_Code/RecipeThesaurus/
       - name: Build with dotnet
         run: dotnet build Source_Code/RecipeThesaurus/RecipeThesaurus.sln --configuration Release
       - name: dotnet publish
@@ -58,7 +56,7 @@ jobs:
       - name: Zip artifact for deployment
         run: zip release.zip ./Source_Code/RecipeThesaurus/* -r
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: .net-app
           path: release.zip
