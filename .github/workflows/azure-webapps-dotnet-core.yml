@@ -52,7 +52,7 @@ jobs:
             ${{ runner.os }}-nuget-
           working-directory: Source_Code/RecipeThesaurus/
       - name: Build with dotnet
-        run: dotnet build Source_Code/RecipeThesaurus/--configuration Release
+        run: dotnet build Source_Code/RecipeThesaurus/RecipeThesaurus.sln --configuration Release
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/
       - name: Zip artifact for deployment
