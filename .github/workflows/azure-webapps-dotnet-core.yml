@@ -25,8 +25,10 @@ env:
   DOTNET_VERSION: '6'                 # set this to the .NET Core version to use
   DOTNET_ROOT: 'Source_Code/RecipeTheasaurus'
 on:
+  on:  
   push:
-    branches: [ "main" ]
+    tags:
+      - '*'
   workflow_dispatch:
 
 permissions:
