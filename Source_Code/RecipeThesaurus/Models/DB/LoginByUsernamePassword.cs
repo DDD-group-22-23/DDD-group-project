@@ -26,7 +26,7 @@ namespace RecipeThesaurus.Models.DB
                 string sqlQuery = "EXEC [dbo].[LoginByUsernamePassword] " +
                                     "@username, @password";
 
-                lst = await this.FromSql(sqlQuery, usernameParam, passwordParam).ToListAsync();
+                lst = await this.Query<LoginByUsernamePassword>()(sqlQuery, usernameParam, passwordParam).ToListAsync();
             }
             catch (Exception ex)
             {

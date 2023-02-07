@@ -46,7 +46,7 @@ namespace RecipeThesaurus.Models.DB
             // [Asma Khalid]: Query for store procedure.  
             //modelBuilder.Query<LoginByUsernamePassword>();
 
-            modelBuilder.Entity<LoginByUsernamePassword>().HasNoKey();
+            modelBuilder.Entity<LoginByUsernamePassword>();
         }
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
