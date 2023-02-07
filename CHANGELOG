@@ -1,4 +1,40 @@
-Commit: 6a08014
+Commit: be87c10
+Author: Christopher Boczko
+Tue Feb 7 12:19:58 2023
+Commit subject: 
+inital sql based login razor pages
+
+Commit: 7876d3e
+Author: Christopher Boczko
+Mon Feb 6 14:30:07 2023
+Commit subject: 
+added app config for db
+
+Commit: 710e6d8
+Author: Christopher Boczko
+Mon Feb 6 14:08:13 2023
+Commit subject: 
+added Config notes with nuget hosts
+
+Commit: 355726f
+Author: Christopher Boczko
+Mon Feb 6 13:53:09 2023
+Commit subject: 
+added aditional files for blazer
+
+Commit: ba33e5f
+Author: Christopher Boczko
+Mon Feb 6 13:52:22 2023
+Commit subject: 
+intial commit with blazer framework
+
+Commit: 0b7afb2
+Author: Christopher Boczko
+Mon Feb 6 13:21:34 2023
+Commit subject: 
+added decpac file
+
+Commit: 4d4760f
 Author: Christopher Boczko
 Mon Feb 6 10:02:01 2023
 Commit subject: 
