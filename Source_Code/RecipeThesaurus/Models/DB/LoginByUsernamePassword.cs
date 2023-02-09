@@ -1,10 +1,16 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
+
+
 namespace RecipeThesaurus.Models.DB
 {
     #region Login by username and password store procedure method.  
+
     public class LoginByUsernamePassword
-    { 
+    {
+   
+
         /// <summary>  
         /// Login by username and password store procedure method.  
         /// </summary>  
@@ -15,23 +21,27 @@ namespace RecipeThesaurus.Models.DB
         {
             // Initialization.  
             List<LoginByUsernamePassword> lst = new List<LoginByUsernamePassword>();
+            using (var context = new RecipeThesaurusContext())
+                try
+                {
+                    // Settings.  
+                    var sqlParams = new[]{
+                    new SqlParameter("@username", usernameVal ?? (object)DBNull.Value),
+                    new SqlParameter("@password", passwordVal ?? (object)DBNull.Value)
+                };
 
-            try
-            {
-                // Settings.  
-                SqlParameter usernameParam = new SqlParameter("@username", usernameVal ?? (object)DBNull.Value);
-                SqlParameter passwordParam = new SqlParameter("@password", passwordVal ?? (object)DBNull.Value);
+            // Processing.  
+           string sqlQuery = $"EXEC [dbo].[LoginByUsernamePassword] @username @password";
+                    lst = await context.Database.SqlQueryRaw<LoginByUsernamePassword>(
+                        sqlQuery,
+                        sqlParams
+                        ).ToListAsync();
 
-                // Processing.  
-                string sqlQuery = "EXEC [dbo].[LoginByUsernamePassword] " +
-                                    "@username, @password";
-
-                lst = await this.Query<LoginByUsernamePassword>()(sqlQuery, usernameParam, passwordParam).ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
 
             // Info.  
             return lst;

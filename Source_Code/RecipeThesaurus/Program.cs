@@ -44,7 +44,9 @@ builder.Services.AddMvc().AddRazorPagesOptions(options =>
     });
 
 // [Asma Khalid]: Register SQL database configuration context as services.    
+
 builder.Services.AddDbContext<RecipeThesaurusContext>(options => builder.Configuration.GetConnectionString("RecipeThesaurus"));
+
 app.UseAuthorization();
 app.UseAuthentication();
 

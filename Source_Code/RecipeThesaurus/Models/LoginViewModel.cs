@@ -1,7 +1,11 @@
-﻿namespace RecipeThesaurus.Models
+﻿namespace CoreLoginEfDbFirst.Models
 {
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Hosting;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Reflection.Metadata;
 
     /// <summary>  
     /// Login view model class.  
@@ -24,7 +28,18 @@
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
-
+   
         #endregion
+    }
+    public class RecipeThesaurusContext : DbContext
+    {
+        protected readonly IConfiguration Configuration;
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            // connect to sql server with connection string from app settings
+            options.UseSqlServer(Configuration.GetConnectionString("RecipeThesaurus"));
+        }
+        public DbSet<LoginViewModel> LoginViewModel { get; set; }
     }
 }
