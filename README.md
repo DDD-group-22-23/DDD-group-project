@@ -31,6 +31,7 @@
 - [Chris Boczko](https://github.com/admgecko)
 - [David Cain](https://github.com/deev123)
 - [Nikolai Valkamo](https://github.com/firefly599)
+- [Lawrence Gibson](https://github.com/lgibson02)
 
 ## Changelog
 
