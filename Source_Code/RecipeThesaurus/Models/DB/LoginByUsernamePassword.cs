@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
 
-namespace RecipeThesaurus.Models.DB
+namespace RecipeThesaurus.Models.DB.LoginUsernamePassword
 {
     #region Login by username and password store procedure method.  
 

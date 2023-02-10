@@ -1,24 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using RecipeThesaurus.Models.DB;
+using RecipeThesaurus.Models;
+using RecipeThesaurus.Models.DB.LoginUsernamePassword;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace RecipeThesaurus.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
     { 
     /// <summary>  
     /// Gets or sets login model property.  
     /// </summary>  
     [BindProperty]
-        public CoreLoginEfDbFirst.Models.LoginViewModel LoginModel { get; set; }
+        public  LoginViewModel LoginModel { get; set; }
         #region Private Properties.  
-        public string Username { get; set; } = null!;
-        public string Password { get; set; } = null!;
+       
         /// <summary>  
         /// Database Manager property.  
         /// </summary>  
@@ -36,7 +37,7 @@ namespace RecipeThesaurus.Pages
             try
             {
                 // Settings.  
-                this.databaseManager = databaseManagerContext;
+                databaseManager = databaseManagerContext;
                 _logger = logger;
             }
             catch (Exception ex)
@@ -99,7 +100,7 @@ namespace RecipeThesaurus.Pages
                 {
                     // Initialization.  
 
-                    var loginInfo = await LoginByUsernamePassword.LoginByUsernamePasswordMethodAsync(this.LoginModel.Username, this.LoginModel.Password);
+                    var loginInfo =  await this.databaseManager.LoginByUsernamePasswordMethodAsync(this.LoginModel.Username, this.LoginModel.Password);
                     // Verification.  
                     if (loginInfo != null && loginInfo.Count() > 0)
                     {

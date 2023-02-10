@@ -1,4 +1,4 @@
-﻿namespace CoreLoginEfDbFirst.Models
+﻿namespace RecipeThesaurus.Models
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
