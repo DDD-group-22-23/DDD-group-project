@@ -1,0 +1,17 @@
+﻿@page
+@using Microsoft.AspNetCore.Authentication
+@model SecureModel
+@{
+    ViewData["Title"] = "I'm full of secure data";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>Claims</h2>
+
+<dl>
+    @foreach (var claim in User.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+    }
+</dl>
