@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace RecipeThesaurus.Pages
 {
     [Authorize(Policy = "Registered")]
+
     public class SecureModel : PageModel
     {
         private readonly ILogger<SecureModel> _logger;
@@ -22,5 +23,6 @@ namespace RecipeThesaurus.Pages
         public void OnGet()
         {
         }
+
     }
 }

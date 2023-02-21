@@ -45,9 +45,9 @@ namespace RecipeThesaurusApp
             services.AddAuthorization(options =>
                 options.AddPolicy("Registered", policy => policy.RequireClaim("iss", Configuration["RecipeThesaurusApp:Authority"]))
             );
-            //services.AddAuthorization(options =>
-                //options.AddPolicy("Registered", policy => policy.RequireClaim("userType", "premium"))
-            //);
+            services.AddAuthorization(options =>
+                options.AddPolicy("Registered", policy => policy.RequireClaim("userType", "premium"))
+            );
 
             services.AddRazorPages();
 
@@ -110,6 +110,7 @@ namespace RecipeThesaurusApp
             });
 	    IdentityModelEventSource.ShowPII = true;
         }
+
     }
 }
 
