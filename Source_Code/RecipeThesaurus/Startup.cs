@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
+using RecipeThesaurus;
 
 namespace RecipeThesaurusApp
 {
@@ -55,9 +56,6 @@ namespace RecipeThesaurusApp
             {
                 options.DefaultScheme = "cookie";
                 options.DefaultChallengeScheme = "oidc";
-           	options.GetClaimsFromUserInfoEndpoint = true; 
-		options.ClaimActions.MapAll();
-		options.ClaimActions.Add(new RoleClaimAction());
 	       	})
                 .AddCookie("cookie", options =>
                 {
@@ -70,7 +68,9 @@ namespace RecipeThesaurusApp
                     options.ClientId = Configuration["RecipeThesaurusApp:ClientId"];
                     options.ClientSecret = Configuration["RecipeThesaurusApp:ClientSecret"];
                     options.Scope.Add("openid");
-
+                    options.GetClaimsFromUserInfoEndpoint = true;
+                    options.ClaimActions.MapAll();
+                    options.ClaimActions.Add(new RoleClaimAction());
                     // leave this in, otherwise the aud claim is removed. See https://stackoverflow.com/questions/69289426/missing-aud-claim-in-asp-net-core-policy-check-prevents-authorization-but-it for more
                     options.ClaimActions.Remove("aud");
                     options.ClaimActions.Remove("iss");
