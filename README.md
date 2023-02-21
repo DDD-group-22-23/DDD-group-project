@@ -10,21 +10,25 @@
 
 ## System requirements
 
+For the main webservice
 - .NET 6
-- Azure Web Apps
 - MSSQL server
+for the backend oauth2 
+- Fusionauth
+- Mysql
+- elk
+finally for testing
+- selinium
+All of the containers are orcastrated using k8s
 
 ## Development
 
-- To build the site locally, navigate to Source_Code/RecipeThesaurus/ and run `dotnet run`
 
-- a push to git will trigger a github action to deploy the site - current url is https://recipethesaurus.azurewebsites.net/
 
 ## Resources
 
 - [Trello](https://trello.com/b/aTTXc03p/ddd-project)
 - [Getting started with ASP](https://dotnet.microsoft.com/en-us/learn/aspnet)
-- [MariaDB home](https://mariadb.org/)
 
 ## Contributors
 
