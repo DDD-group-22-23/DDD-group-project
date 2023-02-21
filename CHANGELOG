@@ -1,4 +1,52 @@
-Commit: be87c10
+Commit: 339ea10
+Author: Christopher Boczko
+Tue Feb 21 09:37:14 2023
+Commit subject: 
+added webapp k8s code
+
+Commit: 4521e69
+Author: Christopher Boczko
+Tue Feb 21 09:29:21 2023
+Commit subject: 
+update readme
+
+Commit: 5666fcf
+Author: Christopher Boczko
+Tue Feb 21 09:12:58 2023
+Commit subject: 
+new .net 5 based fusionauth webapp
+
+Commit: 8b00e2e
+Author: Christopher Boczko
+Mon Feb 20 09:43:37 2023
+Commit subject: 
+add oauth k8s and stuff
+
+Commit: 6590611
+Author: Christopher Boczko
+Fri Feb 10 14:00:15 2023
+Commit subject: 
+dbcontext
+
+Commit: 043b751
+Author: Christopher Boczko
+Thu Feb 9 13:30:28 2023
+Commit subject: 
+fixed Program.cs and more work on model
+
+Commit: afd99df
+Author: Christopher Boczko
+Wed Feb 8 14:40:56 2023
+Commit subject: 
+changes to program.cs, cleanup of source code directory - program.cs compiles okay, but we need to fix index.cshtml.cs
+
+Commit: 141cd87
+Author: Christopher Boczko
+Tue Feb 7 13:45:10 2023
+Commit subject: 
+continuing with sql logic
+
+Commit: b3d35e2
 Author: Christopher Boczko
 Tue Feb 7 12:19:58 2023
 Commit subject: 

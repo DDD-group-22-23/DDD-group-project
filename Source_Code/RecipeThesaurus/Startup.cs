@@ -55,7 +55,10 @@ namespace RecipeThesaurusApp
             {
                 options.DefaultScheme = "cookie";
                 options.DefaultChallengeScheme = "oidc";
-            })
+           	options.GetClaimsFromUserInfoEndpoint = true; 
+		options.ClaimActions.MapAll();
+		options.ClaimActions.Add(new RoleClaimAction());
+	       	})
                 .AddCookie("cookie", options =>
                 {
                     options.Cookie.Name = Configuration["RecipeThesaurusApp:CookieName"];

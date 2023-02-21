@@ -56,28 +56,19 @@ kind: Service
 metadata:
   name: fusionauth
 spec:
-  type: LoadBalancer
   ports:
-    - port: 9011
-      name: http
+    - name: http-9011
+      protocol: TCP
+      port: 9011
+      targetPort: 9011
+    - name: http-9012
+      protocol: TCP
+      port: 9012
+      targetPort: 9013
+    - name: http-9013
+      protocol: TCP
+      port: 9013
+      targetPort: 9013
   selector:
     app: fusionauth
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: fusionauth
-  annotations:
-    kubernetes.io/ingress.class: fusionauth
-spec:
-  rules:
-    - host: fusionauth.recipethesaurus.software
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: fusionauth
-                port:
-                  number: 1911
+  type: LoadBalancer
