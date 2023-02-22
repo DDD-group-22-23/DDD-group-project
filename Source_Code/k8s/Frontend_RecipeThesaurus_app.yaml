@@ -19,13 +19,33 @@ spec:
         - name: recipethesaurusregistrykey
       containers:      
         - name: recipethesaurus
-          image: recipethesaurus.azurecr.io/recipethesaurus-app:v1
-          imagePullPolicy: IfNotPresent
+          image: recipethesaurus.azurecr.io/recipethesaurus-app:latest
+          imagePullPolicy: Always 
           ports:
             - containerPort: 80
               protocol: TCP
             - containerPort: 443 
               protocol: TCP
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: https://+:443;http://+:80
+          volumeMounts:
+            - name: recipethesaurus-usersecret
+              mountPath: “/root/.microsoft/usersecrets/12e6ad9c-d1e3-4724-8c90-992a440391a7/secrets.json”
+              readOnly: true
+            - name: recipethesaurus-pfx
+              mountPath: “/root/.aspnet/https/RecipeThesaurus.pfx”
+              readOnly: true
+      volumes:
+        - name: recipethesaurus-usersecret
+          secret:
+            secretName: recipethesaurus-usersecret
+        - name: recipethesaurus-pfx
+          secret:
+            secretName: recipethesaurus-pfx
+              
 ---
 apiVersion: v1
 kind: Service
