@@ -5,4 +5,4 @@ services:
     image: ${DOCKER_REGISTRY-}recipethesaurus
     build:
       context: .
-      dockerfile: recipethesaurus/Dockerfile
+      dockerfile: RecipeThesaurus/Dockerfile

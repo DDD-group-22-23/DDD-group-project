@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>acc59c30-4c21-4152-a932-0525b0b68044</ProjectGuid>
+    <ProjectGuid>e10f7721-7b5f-4dfd-a949-f5fbe43f786b</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>recipethesaurus</DockerServiceName>

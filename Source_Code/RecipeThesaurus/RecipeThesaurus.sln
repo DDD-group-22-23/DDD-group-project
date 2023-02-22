@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeThesaurus", "RecipeThesaurus.csproj", "{6A72A477-22E0-4DA7-97F3-A471239F5B04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeThesaurus", "RecipeThesaurus\RecipeThesaurus.csproj", "{43030B08-D893-487A-ADB9-966A0F13CA29}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{ACC59C30-4C21-4152-A932-0525B0B68044}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E10F7721-7B5F-4DFD-A949-F5FBE43F786B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A72A477-22E0-4DA7-97F3-A471239F5B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A72A477-22E0-4DA7-97F3-A471239F5B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A72A477-22E0-4DA7-97F3-A471239F5B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A72A477-22E0-4DA7-97F3-A471239F5B04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACC59C30-4C21-4152-A932-0525B0B68044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACC59C30-4C21-4152-A932-0525B0B68044}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACC59C30-4C21-4152-A932-0525B0B68044}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACC59C30-4C21-4152-A932-0525B0B68044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43030B08-D893-487A-ADB9-966A0F13CA29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43030B08-D893-487A-ADB9-966A0F13CA29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43030B08-D893-487A-ADB9-966A0F13CA29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43030B08-D893-487A-ADB9-966A0F13CA29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E10F7721-7B5F-4DFD-A949-F5FBE43F786B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E10F7721-7B5F-4DFD-A949-F5FBE43F786B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E10F7721-7B5F-4DFD-A949-F5FBE43F786B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E10F7721-7B5F-4DFD-A949-F5FBE43F786B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B00E6CBF-DF04-4217-9247-F54C2C759B72}
+		SolutionGuid = {B4895A90-095F-4EC3-B2CE-B575AEE58F9C}
 	EndGlobalSection
 EndGlobal
