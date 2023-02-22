@@ -1,60 +1,46 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: recipethesaurus
-  labels:
-    app: recipethesaurus
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: recipethesaurus
+      app: recipethesaurus
   template:
     metadata:
       labels:
-        app: recipethesaurus
-        service: recipethesaurus
+        app: recipethesaurus 
     spec:
-      containers:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      imagePullSecrets:
+        - name: recipethesaurusregistrykey
+      containers:      
         - name: recipethesaurus
-          image: recipethesaurus.azurecr.io/recipethesaurus:v1
+          image: recipethesaurus.azurecr.io/recipethesaurus-app:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
+              protocol: TCP
+            - containerPort: 443 
               protocol: TCP
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: recipethesaurus
-  labels:
-    app: recipethesaurus
-    service: recipethesaurus
 spec:
-  type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: 80
+    - name: http
       protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443 
   selector:
-    service: recipethesaurus
----
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: recipethesaurus
-  annotations:
-    kubernetes.io/ingress.class: recipethesaurus
-spec:
-  rules:
-    - host: app.recipethesaurus.software
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: recipethesaurus
-                port:
-                  number: 80
+    app: recipethesaurus
+  type: LoadBalancer
