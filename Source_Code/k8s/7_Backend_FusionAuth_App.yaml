@@ -57,18 +57,10 @@ metadata:
   name: fusionauth
 spec:
   ports:
-    - name: http-9011
+    - name: http
       protocol: TCP
-      port: 9011
+      port: 80 
       targetPort: 9011
-    - name: http-9012
-      protocol: TCP
-      port: 9012
-      targetPort: 9013
-    - name: http-9013
-      protocol: TCP
-      port: 9013
-      targetPort: 9013
   selector:
     app: fusionauth
   type: LoadBalancer

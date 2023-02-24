@@ -24,19 +24,23 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-            - containerPort: 443 
+            - containerPort: 443
               protocol: TCP
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: Development
             - name: ASPNETCORE_URLS
-              value: https://+:443;http://+:80
+              value: http://+:80;https://+:443
+            - name: ASPNETCORE_Kestrel__Certificates__Default__Path
+              value: /root/.aspnet/https/recipethesaurus.pfx
+            - name: ASPNETCORE_Kestrel__Certificates__Default__Password
+              value: "QCYzZpEVH0uVf1jh"
           volumeMounts:
             - name: recipethesaurus-usersecret
-              mountPath: “/root/.microsoft/usersecrets/12e6ad9c-d1e3-4724-8c90-992a440391a7/secrets.json”
+              mountPath: /root/.microsoft/UserSecrets/b3f68ebe-7307-40b8-bb9c-720cc16044a8
               readOnly: true
             - name: recipethesaurus-pfx
-              mountPath: “/root/.aspnet/https/RecipeThesaurus.pfx”
+              mountPath: /root/.aspnet/https
               readOnly: true
       volumes:
         - name: recipethesaurus-usersecret
@@ -45,7 +49,6 @@ spec:
         - name: recipethesaurus-pfx
           secret:
             secretName: recipethesaurus-pfx
-              
 ---
 apiVersion: v1
 kind: Service
@@ -60,7 +63,7 @@ spec:
     - name: https
       protocol: TCP
       port: 443
-      targetPort: 443 
+      targetPort: 443
   selector:
     app: recipethesaurus
   type: LoadBalancer

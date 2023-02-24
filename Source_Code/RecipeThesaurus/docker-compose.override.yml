@@ -4,7 +4,7 @@ services:
   recipethesaurus:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://app.RecipeThesaurus.software:443;http://app.RecipeThesaurus.software:80
+      - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
       - "80"
       - "443"
