@@ -1,4 +1,58 @@
-Commit: 339ea10
+Commit: 0556e72
+Author: Christopher Boczko
+Fri Feb 24 16:36:45 2023
+Commit subject: 
+final frontend app configuration for k8s
+
+Commit: 88c7432
+Author: Christopher Boczko
+Wed Feb 22 17:24:42 2023
+Commit subject: 
+frontend deployment
+
+Commit: 911b847
+Author: Christopher Boczko
+Wed Feb 22 17:23:40 2023
+Commit subject: 
+Merge branch 'feature/Database_creation_and_deployment' of github.com:DDD-group-22-23/DDD-group-project into feature/Database_creation_and_deployment
+
+Commit: f47a3c2
+Author: Christopher Boczko
+Wed Feb 22 17:22:54 2023
+Commit subject: 
+migrated to netcore6
+
+Commit: 33f756f
+Author: Christopher Boczko
+Tue Feb 21 17:03:25 2023
+Commit subject: 
+frontend deployment
+
+Commit: 2cebe38
+Author: Christopher Boczko
+Tue Feb 21 17:02:05 2023
+Commit subject: 
+oauth role claims
+
+Commit: 4805d31
+Author: Christopher Boczko
+Tue Feb 21 16:03:27 2023
+Commit subject: 
+Merge branch 'feature/Database_creation_and_deployment' of github.com:DDD-group-22-23/DDD-group-project into feature/Database_creation_and_deployment
+
+Commit: 68f94b1
+Author: Christopher Boczko
+Tue Feb 21 16:03:02 2023
+Commit subject: 
+account creation stuff
+
+Commit: babeb5e
+Author: Christopher Boczko
+Tue Feb 21 15:54:36 2023
+Commit subject: 
+sorted k8s stuff
+
+Commit: 9aab6ee
 Author: Christopher Boczko
 Tue Feb 21 09:37:14 2023
 Commit subject: 
