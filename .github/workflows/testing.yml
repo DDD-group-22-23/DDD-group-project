@@ -25,7 +25,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install selenium
-          sudo apt-get isntall firefox
+          sudo apt-get install firefox
           sudo apt-get install wget && wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz
           tar -xf geckodriver-v0.32.2-linux64.tar.gz && sudo mv geckodriver /usr/local/bin
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
