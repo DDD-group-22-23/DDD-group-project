@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elasticconfig
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: azurefile-csi 
+  csi:
+    driver: file.csi.azure.com
+    readOnly: false
+    volumeHandle: unique-volumeid-elasticconfig  # make sure this volumeid is unique for every identical share in the cluster
+    volumeAttributes:
+      shareName: elasticconfig
+    nodeStageSecretRef:
+      name: storagestd
+      namespace: default
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - uid=0
+    - gid=0
+    - mfsymlinks
+    - cache=strict
+    - nosharesock
+    - nobrl
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: fusionconfig
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: azurefile-csi
+  csi:
+    driver: file.csi.azure.com
+    readOnly: false
+    volumeHandle: unique-volumeid-fusionconfig  # make sure this volumeid is unique for every identical share in the cluster
+    volumeAttributes:
+      shareName: fusionconfig
+    nodeStageSecretRef:
+      name: storagestd
+      namespace: default
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - uid=0
+    - gid=0
+    - mfsymlinks
+    - cache=strict
+    - nosharesock
+    - nobrl

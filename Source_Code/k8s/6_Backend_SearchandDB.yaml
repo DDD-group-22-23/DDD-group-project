@@ -1,0 +1,116 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      imagePullSecrets:
+        - name: recipethesaurusregistrykey      
+      containers:      
+        - name: mysql
+          image: recipethesaurus.azurecr.io/mysql:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 512Mi
+            limits:
+              cpu: 250m
+              memory: 512Mi
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - mountPath: "/var/lib/mysql"
+              name: mysqldata
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: fAm2a6kv9rTrBtxm 
+      volumes:
+        - name: mysqldata
+          persistentVolumeClaim:
+            claimName:  mysqldata
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: search
+  template:
+    metadata:
+      labels:
+        app: search
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      imagePullSecrets:
+        - name: recipethesaurusregistrykey      
+      containers:      
+        - name: search
+          image: recipethesaurus.azurecr.io/elasticsearch:7.17.0
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 768Mi
+            limits:
+              cpu: 250m
+              memory: 768Mi
+          ports:
+            - containerPort: 9200
+            - containerPort: 9300
+          volumeMounts:
+            - mountPath: "/usr/share/elasticsearch/config"
+              name: elasticconfig
+            - mountPath: "/usr/share/elasticsearch/data"
+              name: elasticdata 
+          env:
+            - name: ELASTICSEARCH_CLUSTER_NAME
+              value: fusionauth
+            - name: ES_JAVA_OPTS
+              value: "-Xms512m -Xmx512m"
+      volumes:
+        - name: elasticconfig 
+          persistentVolumeClaim:
+            claimName:  elasticconfig
+        - name: elasticdata
+          persistentVolumeClaim:
+            claimName: elasticdata
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3306 
+    targetPort: 3306
+  selector:
+    app: mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: search
+spec:
+  type: ClusterIP 
+  ports:
+  - port: 9200
+    targetPort: 9200
+  selector:
+    app: search
