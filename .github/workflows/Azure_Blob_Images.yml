@@ -1,18 +1,16 @@
-name: Upload To Azure Blob Storage
-on:
-  push:
-    tags:
-      - '*'
+# File: .github/workflows/workflow.yml
+
+on: [push]
 jobs:
-  upload:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: bacongobbler/azure-blob-storage-upload@main
-        with:
-          source_dir: _dist
-          container_name: www
-          connection_string: ${{ secrets.ConnectionString }}
-          extra_args: '--pattern *.tar.gz'
-          # WARNING: this will overwrite existing blobs in your blob storage
-          overwrite: 'true'
+    steps: 
+    - uses: actions/checkout@v1
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.0.100'
+    - uses: lauchacarro/Azure-Storage-Action@master
+      with:
+        enabled-static-website: 'false'
+        folder: 'Images'
+        connection-string: ${{ secrets.AZURE_IMAGES_CS }}
