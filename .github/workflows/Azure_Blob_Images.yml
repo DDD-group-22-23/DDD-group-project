@@ -1,6 +1,9 @@
 # File: .github/workflows/workflow.yml
 
-on: [push]
+on:  
+  push:
+    tags:
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-latest
