@@ -63,4 +63,4 @@ spec:
       targetPort: 9011
   selector:
     app: fusionauth
-  type: ClusterIP 
+  type: LoadBalancer
