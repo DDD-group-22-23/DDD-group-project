@@ -1,0 +1,10 @@
+set fusionauth_api_key=km950__rfp1itofjHVNf2Bdu5n_8vpRCCVdVvenqsIN-6Logwynn14Iw 
+usermanager.exe jasper@RecipeThesaurus.software FTxdUKx8ek Sundown
+usermanager.exe tanika@RecipeThesaurus.software B4Q8wn9ASw Pomegranate
+usermanager.exe fernando@RecipeThesaurus.software O6b7gKVyw3 Meteorite 
+usermanager.exe caitlin@RecipeThesaurus.software ONabYpAGzG Twilight
+usermanager.exe d.p.cain-2021@hull.ac.uk e7tvBe9UVd Malta
+usermanager.exe n.valkamo-2021@hull.ac.uk Pe4YU6cHNw Waiouru
+usermanager.exe matthew.clark-2021@hull.ac.uk IKq4E4VUbE Indochine
+usermanager.exe l.gibson-2021@hull.ac.uk k6nuJUyevR Gossamer
+usermanager.exe c.j.boczko-2020@hull.ac.uk FYtdK8REs4 Eagle

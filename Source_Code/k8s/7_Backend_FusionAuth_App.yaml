@@ -1,0 +1,66 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fusionauth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fusionauth
+  template:
+    metadata:
+      labels:
+        app: fusionauth
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      imagePullSecrets:
+        - name: recipethesaurusregistrykey
+      containers:
+        - name: fusionauth
+          image: recipethesaurus.azurecr.io/fusionauth-app-mysql:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 512Mi
+            limits:
+              cpu: 250m
+              memory: 512Mi
+          ports:
+            - containerPort: 9011
+            - containerPort: 9012
+            - containerPort: 9013
+          volumeMounts:
+            - mountPath: "/usr/local/fusionauth/config"
+              name: fusionconfig
+          env:
+            - name: FUSIONAUTH_APP_MEMORY
+              value: 512M
+            - name: FUSIONAUTH_APP_RUNTIME_MODE
+              value: development
+            - name: FUSIONAUTH_APP_URL
+              value: http://fusionauth:9011
+            - name: _SERVERS
+              value: http://search:9200
+            - name: SEARCH_TYPE
+              value: elasticsearch
+      volumes:
+        - name: fusionconfig
+          persistentVolumeClaim:
+            claimName: fusionconfig
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fusionauth
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 9011 
+      targetPort: 9011
+  selector:
+    app: fusionauth
+  type: ClusterIP 

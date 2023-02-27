@@ -1,4 +1,220 @@
-Commit: 6a08014
+Commit: e4ef887
+Author: Christopher Boczko
+Sat Feb 25 15:45:52 2023
+Commit subject: 
+frontend ngnix ingress controller
+
+Commit: 2538cda
+Author: Christopher Boczko
+Sat Feb 25 11:34:15 2023
+Commit subject: 
+Pull Request 1
+
+Commit: 3e018b8
+Author: Christopher Boczko
+Sat Feb 25 11:12:09 2023
+Commit subject: 
+updated copyright as requested by @rowan during peer review
+
+Commit: 9670c0c
+Author: Christopher Boczko
+Fri Feb 24 17:00:29 2023
+Commit subject: 
+change fusionauth port
+
+Commit: 327c5e6
+Author: Christopher Boczko
+Fri Feb 24 16:36:45 2023
+Commit subject: 
+final frontend app configuration for k8s
+
+Commit: 0556e72
+Author: Christopher Boczko
+Fri Feb 24 16:36:45 2023
+Commit subject: 
+final frontend app configuration for k8s
+
+Commit: 88c7432
+Author: Christopher Boczko
+Wed Feb 22 17:24:42 2023
+Commit subject: 
+frontend deployment
+
+Commit: 911b847
+Author: Christopher Boczko
+Wed Feb 22 17:23:40 2023
+Commit subject: 
+Merge branch 'feature/Database_creation_and_deployment' of github.com:DDD-group-22-23/DDD-group-project into feature/Database_creation_and_deployment
+
+Commit: f47a3c2
+Author: Christopher Boczko
+Wed Feb 22 17:22:54 2023
+Commit subject: 
+migrated to netcore6
+
+Commit: 33f756f
+Author: Christopher Boczko
+Tue Feb 21 17:03:25 2023
+Commit subject: 
+frontend deployment
+
+Commit: 2cebe38
+Author: Christopher Boczko
+Tue Feb 21 17:02:05 2023
+Commit subject: 
+oauth role claims
+
+Commit: 4805d31
+Author: Christopher Boczko
+Tue Feb 21 16:03:27 2023
+Commit subject: 
+Merge branch 'feature/Database_creation_and_deployment' of github.com:DDD-group-22-23/DDD-group-project into feature/Database_creation_and_deployment
+
+Commit: 68f94b1
+Author: Christopher Boczko
+Tue Feb 21 16:03:02 2023
+Commit subject: 
+account creation stuff
+
+Commit: babeb5e
+Author: Christopher Boczko
+Tue Feb 21 15:54:36 2023
+Commit subject: 
+sorted k8s stuff
+
+Commit: 9aab6ee
+Author: Christopher Boczko
+Tue Feb 21 09:37:14 2023
+Commit subject: 
+added webapp k8s code
+
+Commit: 4521e69
+Author: Christopher Boczko
+Tue Feb 21 09:29:21 2023
+Commit subject: 
+update readme
+
+Commit: 5666fcf
+Author: Christopher Boczko
+Tue Feb 21 09:12:58 2023
+Commit subject: 
+new .net 5 based fusionauth webapp
+
+Commit: 09edc28
+Author: Rowan Clark
+Mon Feb 20 11:27:51 2023
+Commit subject: 
+chore: cleanup
+
+Commit: ad54818
+Author: Rowan Clark
+Mon Feb 20 11:23:22 2023
+Commit subject: 
+Merge branch 'feature/Portfolio_Design' into develop
+
+Commit: 289469c
+Author: Rowan Clark
+Mon Feb 20 11:14:04 2023
+Commit subject: 
+feat: add portfolio ppt from first stage
+
+Commit: 8b00e2e
+Author: Christopher Boczko
+Mon Feb 20 09:43:37 2023
+Commit subject: 
+add oauth k8s and stuff
+
+Commit: 8085130
+Author: Rowan Clark
+Mon Feb 13 23:18:15 2023
+Commit subject: 
+chore: add brainstorming to design
+
+Commit: 3a2540d
+Author: Rowan Clark
+Fri Feb 10 17:05:28 2023
+Commit subject: 
+chore: add Lawrence to contributors
+
+Commit: 3eb7f35
+Author: Rowan Clark
+Fri Feb 10 14:57:34 2023
+Commit subject: 
+Merge branch 'develop' into feature/Portfolio_Design
+
+Commit: fd13813
+Author: Rowan Clark
+Fri Feb 10 14:54:44 2023
+Commit subject: 
+remove: remove ref to mariadb as we have swithced to MS SQL
+
+Commit: dc0ec2e
+Author: Rowan Clark
+Fri Feb 10 14:47:40 2023
+Commit subject: 
+chore: add note on docs that will go here
+
+Commit: 6590611
+Author: Christopher Boczko
+Fri Feb 10 14:00:15 2023
+Commit subject: 
+dbcontext
+
+Commit: 043b751
+Author: Christopher Boczko
+Thu Feb 9 13:30:28 2023
+Commit subject: 
+fixed Program.cs and more work on model
+
+Commit: afd99df
+Author: Christopher Boczko
+Wed Feb 8 14:40:56 2023
+Commit subject: 
+changes to program.cs, cleanup of source code directory - program.cs compiles okay, but we need to fix index.cshtml.cs
+
+Commit: 141cd87
+Author: Christopher Boczko
+Tue Feb 7 13:45:10 2023
+Commit subject: 
+continuing with sql logic
+
+Commit: b3d35e2
+Author: Christopher Boczko
+Tue Feb 7 12:19:58 2023
+Commit subject: 
+inital sql based login razor pages
+
+Commit: 7876d3e
+Author: Christopher Boczko
+Mon Feb 6 14:30:07 2023
+Commit subject: 
+added app config for db
+
+Commit: 710e6d8
+Author: Christopher Boczko
+Mon Feb 6 14:08:13 2023
+Commit subject: 
+added Config notes with nuget hosts
+
+Commit: 355726f
+Author: Christopher Boczko
+Mon Feb 6 13:53:09 2023
+Commit subject: 
+added aditional files for blazer
+
+Commit: ba33e5f
+Author: Christopher Boczko
+Mon Feb 6 13:52:22 2023
+Commit subject: 
+intial commit with blazer framework
+
+Commit: 0b7afb2
+Author: Christopher Boczko
+Mon Feb 6 13:21:34 2023
+Commit subject: 
+added decpac file
+
+Commit: 4d4760f
 Author: Christopher Boczko
 Mon Feb 6 10:02:01 2023
 Commit subject: 
