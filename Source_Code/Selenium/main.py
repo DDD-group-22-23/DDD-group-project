@@ -19,7 +19,7 @@ from os import environ
 # initialise options, not headless because this is the desktop testing, we'd like to see what is going on
 # setup the driver with firefox
 options = Options()
-options.headless = False
+options.headless = True
 driver = webdriver.Firefox(options=options)
 
 # go to our homepage and check that we're at the homepage
