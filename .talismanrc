@@ -1,4 +1,6 @@
 fileignoreconfig:
 - filename: Source_Code/RecipeThesaurus/obj/project.nuget.cache
   checksum: 840ebffb03bbdf172e36b1924ebfead24aee9739f2a07014be557f20e0d29505
+- filename: Source_Code/Selenium/main-desktop.py
+  checksum: 8acb00c2f2a06eb1a0aaf54ab3a54b21a8c0b6ca042deb744d85507a5c3e4093
 version: "1.0"
