@@ -16,24 +16,38 @@ from selenium.common import exceptions
 # run source setup-envs.sh to have the variables become available
 from os import environ
 
+def GoToPage(url):
+    print(url)
+    try:
+        driver.get(url)    
+    except exceptions.WebDriverException as e:
+        print(e)
+        print("Page was not found, is it up?")
+        print("If you're seeing this, the program will terminate as the site cannot be reached")
+        if url == "https://app.recipethesaurus.software/":
+            exit(1)
+
+def Click(id, key):
+    try:
+
+        elem = driver.find_element(id, key)
+        elem.click()
+    except exceptions.NoSuchElementException as e:
+        print(e)
+        print("Element not found")
+        
 # initialise options, not headless because this is the desktop testing, we'd like to see what is going on
+# and trust self signed certs
 # setup the driver with firefox
 options = Options()
 options.headless = True
+options.accept_untrusted_certs = True
 driver = webdriver.Firefox(options=options)
 
-# go to our homepage and check that we're at the homepage
-try:
-    driver.get("https://app.recipethesaurus.software/")    
-except exceptions.WebDriverException as e:
-    print(e)
-    print("Site was not found, is it up?")
-    print("If you're seeing this, the program will terminate as the site cannot be reached")
-    exit(1)
+GoToPage("https://app.recipethesaurus.software/")
 assert "Home Page" in driver.title
-# go to secrets login page
-elem = driver.find_element(By.LINK_TEXT, "Secrets")
-elem.click()
+
+Click(By.LINK_TEXT,"Secrets")
 assert "Login" in driver.title
 try:
     #try fetch the username and password from environment variables
