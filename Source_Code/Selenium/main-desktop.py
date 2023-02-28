@@ -17,7 +17,6 @@ from selenium.common import exceptions
 from os import environ
 
 def GoToPage(url):
-    print(url)
     try:
         driver.get(url)    
     except exceptions.WebDriverException as e:
@@ -29,12 +28,15 @@ def GoToPage(url):
 
 def Click(id, key):
     try:
-
         elem = driver.find_element(id, key)
         elem.click()
     except exceptions.NoSuchElementException as e:
         print(e)
         print("Element not found")
+
+def Type(id, key, text):
+    elem = driver.find_element(id,key)
+    elem.send_keys(text)
 
 # initialise options, not headless because this is the desktop testing, we'd like to see what is going on
 # and trust self signed certs
@@ -53,10 +55,20 @@ try:
     #try fetch the username and password from environment variables
     username = environ['PROJECT_USERNAME']
     password = environ['PROJECT_PASSWORD']
+
 except KeyError as e:
     # if one or more don't exist
     print(e)
     print("Either no username or no password was found. I cannot login")
+
+if username:
+    if password:
+        #they exist
+       Type(By.NAME, "loginId", username)
+       Type(By.NAME, "password", password)
+       Click(By.XPATH, "//button[contains(text(), 'Submit')]")
+
+
 
 input("I'm finished, press enter to quit")
 driver.quit()

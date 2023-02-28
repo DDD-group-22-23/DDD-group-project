@@ -14,11 +14,9 @@ from selenium.common import exceptions
 # to make them available edit setup-envs.sh.example and fill in the username and password used for secrets/backoffice
 # rename the file to setup-envs.sh
 # run source setup-envs.sh to have the variables become available
-# secrets on gh are setup via repository secrets and are automatically handled as of cb4b94
 from os import environ
 
 def GoToPage(url):
-    print(url)
     try:
         driver.get(url)    
     except exceptions.WebDriverException as e:
@@ -30,13 +28,16 @@ def GoToPage(url):
 
 def Click(id, key):
     try:
-
         elem = driver.find_element(id, key)
         elem.click()
     except exceptions.NoSuchElementException as e:
         print(e)
         print("Element not found")
-        
+
+def Type(id, key, text):
+    elem = driver.find_element(id,key)
+    elem.send_keys(text)
+
 # initialise options, not headless because this is the desktop testing, we'd like to see what is going on
 # and trust self signed certs
 # setup the driver with firefox
@@ -54,8 +55,17 @@ try:
     #try fetch the username and password from environment variables
     username = environ['PROJECT_USERNAME']
     password = environ['PROJECT_PASSWORD']
+
 except KeyError as e:
     # if one or more don't exist
     print(e)
     print("Either no username or no password was found. I cannot login")
+
+if username:
+    if password:
+        #they exist
+       Type(By.NAME, "loginId", username)
+       Type(By.NAME, "password", password)
+       Click(By.XPATH, "//button[contains(text(), 'Submit')]")
+
 driver.quit()
