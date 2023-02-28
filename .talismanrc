@@ -1,4 +1,6 @@
 fileignoreconfig:
+- filename: .github/workflows/testing.yml
+  checksum: f04a935f67c2c63608acc33af00e6fbefedd7b4be0cf4aaf44c5edb5da690311
 - filename: Source_Code/RecipeThesaurus/obj/project.nuget.cache
   checksum: 840ebffb03bbdf172e36b1924ebfead24aee9739f2a07014be557f20e0d29505
 - filename: Source_Code/Selenium/main-desktop.py

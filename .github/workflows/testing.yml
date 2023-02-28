@@ -25,6 +25,8 @@ jobs:
           pip install selenium
           wget https://github.com/mozilla/geckodriver/releases/download/v0.32.2/geckodriver-v0.32.2-linux64.tar.gz
           tar -xf geckodriver-v0.32.2-linux64.tar.gz && sudo mv geckodriver /usr/local/bin
+          PROJECT_USERNAME=${{ secrets.PROJECT_USERNAME }}
+          PROJECT_PASSWORD=${{ secrets.PROJECT_PASSWORD }}
       - name: test with selenium
         run: |
           python Source_Code/Selenium/main.py
