@@ -14,6 +14,7 @@ from selenium.common import exceptions
 # to make them available edit setup-envs.sh.example and fill in the username and password used for secrets/backoffice
 # rename the file to setup-envs.sh
 # run source setup-envs.sh to have the variables become available
+# secrets on gh are setup via repository secrets and are automatically handled as of cb4b94
 from os import environ
 
 def GoToPage(url):
