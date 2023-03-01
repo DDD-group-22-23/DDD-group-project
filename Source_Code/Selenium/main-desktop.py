@@ -22,7 +22,6 @@ def GoToPage(url):
     except exceptions.WebDriverException as e:
         print(e)
         print("Page was not found, is it up?")
-        print("If you're seeing this, the program will terminate as the site cannot be reached")
         if url == "https://app.recipethesaurus.software/":
             exit(1)
 
@@ -38,6 +37,10 @@ def Type(id, key, text):
     elem = driver.find_element(id,key)
     elem.send_keys(text)
 
+def Clear(id, key):
+    elem = driver.find_element(id,key)
+    elem.clear()
+
 # initialise options, not headless because this is the desktop testing, we'd like to see what is going on
 # and trust self signed certs
 # setup the driver with firefox
@@ -46,11 +49,25 @@ options.headless = False
 options.accept_untrusted_certs = True
 driver = webdriver.Firefox(options=options)
 
+username = ""
+password = ""
+
 GoToPage("https://app.recipethesaurus.software/")
 assert "Home Page" in driver.title
 
 Click(By.LINK_TEXT,"Secrets")
 assert "Login" in driver.title
+
+# try a bad login
+username = "baduser"
+password = "paddpass"
+
+Type(By.NAME, "loginId", username)
+Type(By.NAME, "password", password)
+Click(By.XPATH, "//button[contains(text(), 'Submit')]")
+Clear(By.NAME, "loginId")
+Clear(By.NAME, "password")
+# try a good login
 try:
     #try fetch the username and password from environment variables
     username = environ['PROJECT_USERNAME']
@@ -67,8 +84,6 @@ if username:
        Type(By.NAME, "loginId", username)
        Type(By.NAME, "password", password)
        Click(By.XPATH, "//button[contains(text(), 'Submit')]")
-
-
 
 input("I'm finished, press enter to quit")
 driver.quit()

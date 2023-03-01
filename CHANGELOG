@@ -1,3 +1,21 @@
+Commit: 1278afd
+Author: Rowan Clark
+Wed Mar 1 14:37:36 2023
+Commit subject: 
+test: automate a bad login too
+
+Commit: 9e44d10
+Author: Rowan Clark
+Tue Feb 28 13:57:36 2023
+Commit subject: 
+test: automated login success
+
+Commit: 319d438
+Author: Rowan Clark
+Tue Feb 28 10:58:37 2023
+Commit subject: 
+docs(testing): add note for env vars on gh
+
 Commit: cb4b940
 Author: Rowan Clark
 Tue Feb 28 10:50:54 2023
