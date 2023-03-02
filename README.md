@@ -1,6 +1,9 @@
 # DDD-group-project
 > DDD group project files
 
+Selenium test branch status
+[![Selenium Testing](https://github.com/DDD-group-22-23/DDD-group-project/actions/workflows/testing.yml/badge.svg?branch=feature%2Fselenium)](https://github.com/DDD-group-22-23/DDD-group-project/actions/workflows/testing.yml)
+
 - [DDD-group-project](#ddd-group-project)
   - [System requirements](#system-requirements)
   - [Development](#development)

@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+export PROJECT_USERNAME=
+export PROJECT_PASSWORD=
