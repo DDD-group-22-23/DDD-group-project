@@ -13,7 +13,11 @@ namespace RecipeThesaurus.Controllers
     {
         [Authorize]
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Recpies()
+        {
+            return View();
+        }
+        public IActionResult Search()
         {
             return View();
         }
