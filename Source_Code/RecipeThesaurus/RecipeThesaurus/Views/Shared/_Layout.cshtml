@@ -7,9 +7,60 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RecipeThesaurus.styles.css" asp-append-version="true" />
+
+    <style>
+        a
+        {
+            text-decoration: none;
+            color: black;
+        }
+
+    </style>
+
 </head>
 <body>
     <header>
+
+
+
+
+
+
+
+
+        <div class="navigation">
+            <div class="pages">
+                <div style="padding:10px">
+    
+                    <div id="profile">
+                        <img id="myPfp" src="https://agoralearning.co.uk/wp-content/uploads/2017/02/blank-profile-picture.png"></img>
+                        <div id="myName" style="float:left;">David</div>
+                    </div>
+            
+                    <form action="">
+                    <input class="searchBar" type="text" placeholder="Search.." name="search">
+                  </form>
+                </div>
+        
+                <div style="padding:10px">
+            
+                    <div class="pageButton"><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></div>
+                    <!--<div class="pageButton"><a asp-area="" asp-controller="Home" asp-action="Recommend">Recommend</a></div>-->
+                    <div class="pageButton"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></div>
+                    <div class="pageButton"><a asp-area="" asp-controller="Home" asp-action="Saved">Saved</a></div>
+                    <div class="pageButton"><a asp-area=""></a>Logout</div>
+                    <div class="pageButton"><a asp-area="" asp-controller="Home" asp-action="Settings">Settings</a></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!--
+
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RecipeThesaurus</a>
@@ -32,10 +83,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Secrets" asp-action="Search">Search</a>
                         </li>
 
+
                     </ul>
                 </div>
             </div>
         </nav>
+
+        -->
     </header>
     <div class="container">
         <main role="main" class="pb-3">

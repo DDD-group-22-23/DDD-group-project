@@ -1,7 +1,126 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand {
+
+
+
+
+
+
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.navigation {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 10;
+    font-size: 32px;
+    line-height: 39px;
+}
+
+.pageButton {
+    display: inline-block;
+    padding: 10px;
+    margin: 1px;
+    background: #E4ECEF;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.pages {
+    text-align: center;
+}
+
+
+
+.homeButton {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+}
+
+.pageButton:hover {
+    animation: hoverOverButton 0.1s ease-in;
+    animation-fill-mode: forwards, both;
+    cursor: pointer;
+}
+
+.currentPage {
+    background-color: black;
+    color: white;
+}
+
+@keyframes hoverOverButton {
+    from {
+    }
+
+    to {
+        transform-origin: center;
+        transform: scale(1.1);
+    }
+}
+
+.searchBar {
+    background: #F1F1F1;
+    border-radius: 20px;
+    border-color: transparent;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 10;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+}
+
+#profile {
+    display: inline;
+}
+
+#myPfp {
+    margin: 5px;
+    float: left;
+    height: 129px;
+    clear: left;
+}
+
+#myName {
+    margin-left: 10px;
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
@@ -45,5 +164,5 @@ button.accept-policy {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
-}
+}*/
 

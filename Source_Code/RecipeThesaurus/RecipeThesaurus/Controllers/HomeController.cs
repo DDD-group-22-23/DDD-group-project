@@ -23,6 +23,31 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Recommend()
+    {
+        return View();
+    }
+
+    public IActionResult Settings()
+    {
+        return View();
+    }
+
+    public IActionResult Saved()
+    {
+        return View();
+    }
+
+    public IActionResult People()
+    {
+        return View();
+    }
+
+    public IActionResult Fridge()
+    {
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
