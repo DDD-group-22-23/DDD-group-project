@@ -16,7 +16,7 @@ class OdbcTest
         //read the data
         while (reader.Read())
         {
-            Console.WriteLine(reader["RecipeName"]);
+            Console.WriteLine(reader["STUFF HERE, DON'T KNOW WHAT YET"]);
         }
         //close the reader
         reader.Close();
