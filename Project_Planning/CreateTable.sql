@@ -49,6 +49,7 @@ FOREIGN KEY (recipeId) REFERENCES recipes(recipeId)
 
 CREATE TABLE recipeIngredients (
 recipeId int NOT NULL,
+ingredient varchar(20) NOT NULL,
 FOREIGN KEY (recipeId) REFERENCES recipes(recipeId)
 );
 
