@@ -8,7 +8,7 @@ class OdbcTest
     {
         
         //create an odbc connection
-        OdbcConnection conn = new OdbcConnection("Driver={ODBC Driver 18 for SQL Server}Server=tcp:recipethesaurus.database.windows.net,1433;Initial Catalog=RecipeThesaurus;Persist SecurityInfo=False;User ID=CloudSA3888a0df;Password=TAKE-AS-SECRET-VAR;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        OdbcConnection conn = new OdbcConnection("Driver={ODBC Driver 18 for SQL Server}Server=tcp:recipethesaurus.database.windows.net,1433;Initial Catalog=RecipeThesaurus;Persist SecurityInfo=False;User ID=CloudSA3888a0df;Password=password;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         conn.Open();
         //create an odbc command
         OdbcCommand DbCommand = conn.CreateCommand();
