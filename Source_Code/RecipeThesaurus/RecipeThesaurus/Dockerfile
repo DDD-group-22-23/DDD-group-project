@@ -15,6 +15,7 @@ RUN apt-get install -y unixodbc-dev
 # optional: kerberos library for debian-slim distributions
 RUN apt-get install -y libgssapi-krb5-2
 RUN apt-get install -y unixodbc-dev
+RUN apt-get -y upgrade
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
