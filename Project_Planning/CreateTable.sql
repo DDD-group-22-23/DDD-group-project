@@ -18,8 +18,7 @@ recipeInstructions varchar(1000),
 recipeLikes int,
 imageURL varchar(100),
 recipeAuthor varchar(20),
-PRIMARY KEY (recipeId),
-FOREIGN KEY (recipeAuthor) REFERENCES users(username)
+PRIMARY KEY (recipeId)
 );
 
 CREATE TABLE userIngredientLikes (
@@ -49,9 +48,9 @@ FOREIGN KEY (recipeId) REFERENCES recipes(recipeId)
 
 CREATE TABLE recipeIngredients (
 recipeId int NOT NULL,
+ingredient varchar(20) NOT NULL,
 FOREIGN KEY (recipeId) REFERENCES recipes(recipeId)
 );
-
 
 
 
