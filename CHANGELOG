@@ -1,8 +1,158 @@
+Commit: 1278afd
+Author: Rowan Clark
+Wed Mar 1 14:37:36 2023
+Commit subject: 
+test: automate a bad login too
+
+Commit: 9e44d10
+Author: Rowan Clark
+Tue Feb 28 13:57:36 2023
+Commit subject: 
+test: automated login success
+
+Commit: 319d438
+Author: Rowan Clark
+Tue Feb 28 10:58:37 2023
+Commit subject: 
+docs(testing): add note for env vars on gh
+
+Commit: cb4b940
+Author: Rowan Clark
+Tue Feb 28 10:50:54 2023
+Commit subject: 
+fix: 144c0f2
+
+Commit: 347d127
+Author: Rowan Clark
+Tue Feb 28 10:43:40 2023
+Commit subject: 
+fix: fix 144c0f266096f7e1ed01947bf92022a36b4fc23a ?
+
+Commit: ad62a37
+Author: Rowan Clark
+Tue Feb 28 10:41:25 2023
+Commit subject: 
+fix: add environment variables to gh actions tests
+
+Commit: 144c0f2
+Author: Rowan Clark
+Tue Feb 28 10:35:22 2023
+Commit subject: 
+refactor(tests): move to functions for what will be common functions
+
+Commit: 733f1b1
+Author: Rowan Clark
+Tue Feb 28 03:48:41 2023
+Commit subject: 
+chore: add 3.9 to testing versions
+
+Commit: 80ea117
+Author: Rowan Clark
+Tue Feb 28 03:13:19 2023
+Commit subject: 
+chore: lower python testing range
+
+Commit: bfebf0a
+Author: Rowan Clark
+Tue Feb 28 03:05:02 2023
+Commit subject: 
+chore: rm firefox and wget from action
+
+Commit: fac2be4
+Author: Rowan Clark
+Tue Feb 28 03:01:20 2023
+Commit subject: 
+fix: re add headless, accidentally removed before
+
+Commit: e91df2e
+Author: Rowan Clark
+Tue Feb 28 02:57:42 2023
+Commit subject: 
+chore: test badge for selenium
+
+Commit: 5c89982
+Author: Rowan Clark
+Tue Feb 28 02:54:11 2023
+Commit subject: 
+chore: cp functionality from desktop to actions testing*
+
+Commit: 6e75260
+Author: Rowan Clark
+Tue Feb 28 02:48:58 2023
+Commit subject: 
+feat: env vars and exception handling
+
+Commit: 6a6f5c0
+Author: Rowan Clark
+Tue Feb 28 02:08:34 2023
+Commit subject: 
+feat: get started properly with selenium
+
+Commit: 98744d2
+Author: Rowan Clark
+Mon Feb 27 10:17:53 2023
+Commit subject: 
+feat: selenium tests for the desktop/local testing
+
+Commit: 374e27e
+Author: Rowan Clark
+Mon Feb 27 10:02:06 2023
+Commit subject: 
+Merge branch 'develop' into feature/selenium
+
+Commit: ca49abd
+Author: Rowan Clark
+Sat Feb 25 20:32:39 2023
+Commit subject: 
+fix: firefox headless
+
+Commit: 8c3a996
+Author: Rowan Clark
+Sat Feb 25 20:10:44 2023
+Commit subject: 
+fix: typo
+
+Commit: 1d16667
+Author: Rowan Clark
+Sat Feb 25 20:07:06 2023
+Commit subject: 
+chore: add firefox to selenium test
+
+Commit: 8f74916
+Author: Rowan Clark
+Sat Feb 25 19:19:20 2023
+Commit subject: 
+Merge branch 'develop'
+
+Commit: 1ac239a
+Author: GitHub
+Sat Feb 25 19:16:15 2023
+Commit subject: 
+Merge pull request #2 from DDD-group-22-23/feature/reverseproxyforfusionauth
+
+Commit: 0b00fa1
+Author: Christopher Boczko
+Sat Feb 25 15:45:52 2023
+Commit subject: 
+frontend ngnix ingress controller
+
 Commit: e4ef887
 Author: Christopher Boczko
 Sat Feb 25 15:45:52 2023
 Commit subject: 
 frontend ngnix ingress controller
+
+Commit: c7bf5a5
+Author: Christopher Boczko
+Sat Feb 25 15:14:26 2023
+Commit subject: 
+Revert "inital workflow"
+
+Commit: 73169eb
+Author: Christopher Boczko
+Sat Feb 25 11:45:01 2023
+Commit subject: 
+inital workflow
 
 Commit: 2538cda
 Author: Christopher Boczko
@@ -81,6 +231,48 @@ Author: Christopher Boczko
 Tue Feb 21 15:54:36 2023
 Commit subject: 
 sorted k8s stuff
+
+Commit: aea0223
+Author: Rowan Clark
+Tue Feb 21 11:26:59 2023
+Commit subject: 
+chore: mv gecko path
+
+Commit: 99d41d9
+Author: Rowan Clark
+Tue Feb 21 11:17:39 2023
+Commit subject: 
+chore: bump geckodriver version
+
+Commit: 068f88f
+Author: Rowan Clark
+Tue Feb 21 11:15:15 2023
+Commit subject: 
+chore: more potential fixes for gh actions
+
+Commit: 30dcd67
+Author: Rowan Clark
+Tue Feb 21 11:11:20 2023
+Commit subject: 
+chore: add geckodriver to action
+
+Commit: 6386999
+Author: Rowan Clark
+Tue Feb 21 10:46:21 2023
+Commit subject: 
+fix: potentially fix testing action
+
+Commit: 8029cbc
+Author: Rowan Clark
+Tue Feb 21 10:43:29 2023
+Commit subject: 
+feat: test adding of a selenium test
+
+Commit: 64a82de
+Author: Rowan Clark
+Tue Feb 21 09:55:14 2023
+Commit subject: 
+feat: add selenium testing script from other repo
 
 Commit: 9aab6ee
 Author: Christopher Boczko

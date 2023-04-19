@@ -1,4 +1,14 @@
 fileignoreconfig:
+- filename: .github/workflows/testing.yml
+  checksum: c92c5cca83e6ff24b7d49276861b46ad4c69b14a3e3dfb77bfd1a753d6910d7b
+- filename: CHANGELOG
+  checksum: 8be4c43bfeb6c3de19e07728660e4e1b9ae6c4bd1a7d99e67950b77821461be4
 - filename: Source_Code/RecipeThesaurus/obj/project.nuget.cache
   checksum: 840ebffb03bbdf172e36b1924ebfead24aee9739f2a07014be557f20e0d29505
+- filename: Source_Code/Selenium/main-desktop.py
+  checksum: 65cd3fb21ec9669cb8dff9eb8fb8b401558a764a31fae45ef3af7cab96bb4e70
+- filename: Source_Code/Selenium/main.py
+  checksum: da3a69da0f9a37af676318a78c3849cc7e229d1d1034f008b035b356efa3b707
+- filename: Source_Code/Selenium/setup-envs.sh.example
+  checksum: 4365f7aa05ec5188da53324817318c060283174e5c1a770f545ac1f204cf65bf
 version: "1.0"
