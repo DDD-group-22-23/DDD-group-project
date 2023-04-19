@@ -21,17 +21,123 @@ namespace RecipeThesaurus
             {
                 conn.Open();
                 var delCmd = conn.CreateCommand();
-                delCmd.CommandText = "DROP TABLE IF EXISTS recipes";
-                delCmd.ExecuteNonQuery();
-                delCmd.CommandText = "DROP TABLE IF EXISTS users";
+                delCmd.CommandText = "DROP TABLE IF EXISTS userIngredientLikes;" +
+                    "DROP TABLE IF EXISTS userIngredientDislikes;" +
+                    "DROP TABLE IF EXISTS userFridge;" +
+                    "DROP TABLE IF EXISTS savedRecipes;" +
+                    "DROP TABLE IF EXISTS recipeIngredients;" +
+                    "DROP TABLE IF EXISTS recipes;" +
+                    "DROP TABLE IF EXISTS users;";
                 delCmd.ExecuteNonQuery();
 
-                var crtCmd = conn.CreateCommand();
+                var createDatabase = conn.CreateCommand();
+                createDatabase.CommandText = @"CREATE TABLE users(
+                username varchar(20) NOT NULL,
+                firstname varchar(20),
+                lastname varchar(20),
+                email varchar(50),
+                profilePic varchar(100),
+                PRIMARY KEY(username)
+                );
+
+                CREATE TABLE recipes(
+                recipeId int NOT NULL,
+                recipeName varchar(100) NOT NULL,
+                recipeDescription varchar(200),
+                recipeInstructions varchar(1000),
+                recipeLikes int,
+                imageURL varchar(100),
+                recipeAuthor varchar(20),
+                PRIMARY KEY(recipeId)
+                );
+
+                CREATE TABLE userIngredientLikes(
+                username varchar(20) NOT NULL,
+                ingredient varchar(20) NOT NULL,
+                FOREIGN KEY(username) REFERENCES users(username)
+                );
+
+                CREATE TABLE userIngredientDislikes(
+                username varchar(20) NOT NULL,
+                ingredient varchar(20) NOT NULL,
+                FOREIGN KEY(username) REFERENCES users(username)
+                );
+
+                CREATE TABLE userFridge(
+                username varchar(20) NOT NULL,
+                ingredient varchar(20) NOT NULL,
+                FOREIGN KEY(username) REFERENCES users(username)
+                );
+
+                CREATE TABLE savedRecipes(
+                username varchar(20) NOT NULL,
+                recipeId int NOT NULL,
+                FOREIGN KEY(username) REFERENCES users(username),
+                FOREIGN KEY(recipeId) REFERENCES recipes(recipeId)
+                );
+
+                CREATE TABLE recipeIngredients(
+                recipeId int NOT NULL,
+                ingredient varchar(20) NOT NULL,
+                FOREIGN KEY(recipeId) REFERENCES recipes(recipeId)
+                );
+                ";
+
+                createDatabase.ExecuteNonQuery();
+
+
+
+
+                var fillDatabase = conn.CreateCommand();
+                fillDatabase.CommandText = @"INSERT INTO users VALUES ('jasper', 'jasper', 'Johnson', 'jasper@RecipeThesaurus.software', null);
+INSERT INTO users VALUES ('tanika', 'Tankia', 'Astley', 'tanika@RecipeThesaurus.software', null);
+INSERT INTO users VALUES ('fernando', 'fernando', 'Ansley', 'fernando@RecipeThesaurus.software', null);
+INSERT INTO users VALUES ('caitlin', 'Caitlin', 'Ashpool', 'caitlin@RecipeThesaurus.software', null);
+INSERT INTO users VALUES ('david', 'David', 'Cain', 'd.p.cain-2021@hull.ac.uk', null);
+INSERT INTO users VALUES ('nikolai', 'Nikolai', 'Valkamo', 'n.valkamo-2021@hull.ac.uk', null);
+INSERT INTO users VALUES ('rowan', 'Rowan', 'Clark', 'matthew.clark-2021@hull.ac.uk', null);
+INSERT INTO users VALUES ('lawrence', 'Lawrence', 'Gibson', 'l.gibson-2021@hull.ac.uk', null);
+INSERT INTO users VALUES ('chris', 'Christopher', 'Boczko', 'c.j.boczko-2020@hull.ac.uk', null);
+
+/* user preferences */
+
+INSERT INTO userIngredientLikes VALUES ('jasper', 'salmon');
+INSERT INTO userIngredientLikes VALUES ('jasper', 'egg');
+INSERT INTO userIngredientLikes VALUES ('jasper', 'pasta');
+
+INSERT INTO userIngredientDislikes VALUES ('jasper', 'melon');
+INSERT INTO userIngredientDislikes VALUES ('jasper', 'cucumber');
+
+
+
+INSERT INTO userIngredientLikes VALUES ('tanika', 'hotdog');
+INSERT INTO userIngredientLikes VALUES ('tanika', 'chilli');
+
+INSERT INTO userIngredientDislikes VALUES ('tanika', 'mashed potato');
+
+
+
+
+INSERT INTO userIngredientLikes VALUES ('david', 'egg');
+INSERT INTO userIngredientLikes VALUES ('david', 'sweetcorn');
+
+
+
+
+INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
+                fillDatabase.ExecuteNonQuery();
+
+
+
+
+
+
+                /*var crtCmd = conn.CreateCommand();
                 // FOREIGN KEY has been removed to bypass integrity
                 crtCmd.CommandText = "CREATE TABLE recipes (recipeId int NOT NULL, recipeName varchar(100) NOT NULL, recipeDescription varchar(200), recipeInstructions varchar(1000), recipeLikes int, imageURL varchar(100), recipeAuthor varchar(20), PRIMARY KEY (recipeId))";
                 crtCmd.ExecuteNonQuery();
                 crtCmd.CommandText = "CREATE TABLE users (username varchar(20) NOT NULL, firstname varchar(20), lastname varchar(20), email varchar(50), profilePic varchar(100), PRIMARY KEY (username))";
-                crtCmd.ExecuteNonQuery();
+                crtCmd.ExecuteNonQuery();*/
 
                 using (var transaction = conn.BeginTransaction())
                 {
@@ -124,6 +230,16 @@ namespace RecipeThesaurus
         {
             createDb();
             CreateRecipe("Nikolai");
+
+            Console.WriteLine("user test:");
+
+            var connectionStringBuilder = new SqliteConnectionStringBuilder();
+            //Use DB in project directory.  If it does not exist, create it:
+            connectionStringBuilder.DataSource = "./SqliteDB.db";
+            UserManager uManager = new UserManager(new SqliteConnection(connectionStringBuilder.ConnectionString));
+
+            User dav = uManager.getUserByUsername("jasper");
+
             GetRecipes();
             Output();
             while (true)
