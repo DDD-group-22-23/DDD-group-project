@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using RecipeThesaurus;
 bool sqlMode = false;
 bool run_webpage = false;
-sqlite a = new sqlite(sqlMode, run_webpage);
+DBManager a = new DBManager(sqlMode, run_webpage);
 a.run();
 
 
