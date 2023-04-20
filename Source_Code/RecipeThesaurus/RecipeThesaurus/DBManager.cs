@@ -10,17 +10,17 @@ using Microsoft.Identity.Client;
 
 namespace RecipeThesaurus
 {
-    public class sqlite
+    public class DBManager
     {
         public RecipesManager recipesManager;
         public UserManager userManager;
         public bool SQL_VER;
         public bool RUN_WEBPAGE;
 
-        public sqlite(bool ver, bool run)
+        public DBManager(bool sql, bool web)
         {
-            SQL_VER = ver;
-            RUN_WEBPAGE = run;
+            SQL_VER = sql;
+            RUN_WEBPAGE = web;
         }
 
         // Creates sqlite database for use
