@@ -17,10 +17,10 @@ namespace RecipeThesaurus
         public bool SQL_VER;
         public bool RUN_WEBPAGE;
 
-        public DBManager(bool ver, bool run)
+        public DBManager(bool sql, bool web)
         {
-            SQL_VER = ver;
-            RUN_WEBPAGE = run;
+            SQL_VER = sql;
+            RUN_WEBPAGE = web;
         }
 
         // Creates sqlite database for use
