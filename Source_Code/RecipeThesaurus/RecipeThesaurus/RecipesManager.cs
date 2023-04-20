@@ -42,8 +42,8 @@ namespace RecipeThesaurus
     public class RecipesManager
     {
         public List<Recipe> recipes = new List<Recipe>();
-        SqlConnection conn;
-        SqliteConnection conn2;
+        public SqlConnection conn;
+        public SqliteConnection conn2;
         bool SQL_VER = false;
 
         public RecipesManager(SqlConnection con = null)

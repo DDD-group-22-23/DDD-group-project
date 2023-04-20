@@ -23,6 +23,15 @@ namespace RecipeThesaurus
             RUN_WEBPAGE = web;
         }
 
+        public void SetConnection(SqlConnection con)
+        {
+            recipesManager.conn = con;
+        }
+        public void SetConnection(SqliteConnection con)
+        {
+            recipesManager.conn2 = con;
+        }
+
         // Creates sqlite database for use
         public void createDb()
         {
