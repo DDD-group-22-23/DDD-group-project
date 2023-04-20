@@ -10,14 +10,14 @@ using Microsoft.Identity.Client;
 
 namespace RecipeThesaurus
 {
-    public class sqlite
+    public class DBManager
     {
         public RecipesManager recipesManager;
         public UserManager userManager;
         public bool SQL_VER;
         public bool RUN_WEBPAGE;
 
-        public sqlite(bool ver, bool run)
+        public DBManager(bool ver, bool run)
         {
             SQL_VER = ver;
             RUN_WEBPAGE = run;
@@ -143,6 +143,10 @@ INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
                 {
                     var istCmd = conn.CreateCommand();
                     istCmd.CommandText = "INSERT INTO recipes VALUES(0,'Korean fried chicken','Cook an exotic yet easy dinner like these spicy and sticky Korean chicken wings. They make ideal finger food for a buffet, but dont forget the napkins','To make the sauce, put all the ingredients in a saucepan and simmer gently until syrupy, so around 3-4 mins. Take off the heat and set aside. Season the chicken wings with salt, pepper and the grated ginger. Toss the chicken with the cornflour until completely coated. Heat about 2cm of vegetable oil in a large frying pan over a medium/high heat. Fry the chicken wings for 8-10 mins until crisp, turning halfway. Remove from the oil and place on kitchen paper. Leave to cool slightly (around 2 mins). Reheat the sauce, and toss the crispy chicken wings in it. Tip into a bowl and top with the sesame seeds and sliced spring onions.',0,'url','Elena Silcock')";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(0,'chicken');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(0,'soy sauce');";
                     istCmd.ExecuteNonQuery();
                     istCmd.CommandText = "INSERT INTO recipes VALUES(1,'Wok-cooked fragrant mussels', 'Jamie Oliver had this idea while eating mussels in New York. It takes literally minutes to cook and tastes absolutely fabulous.', 'Place the mussels with a couple of lugs of olive oil in a large, very hot wok or pot. Shake around and add the rest of the ingredients, apart from the lime juice and coconut milk. Keep turning over until all the mussels have opened - throw away any that remain closed. Squeeze in the lime juice and add the coconut milk. Bring to the boil and serve immediately.',0,'url', 'Jamie Oliver')";
                     istCmd.ExecuteNonQuery();

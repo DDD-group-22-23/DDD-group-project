@@ -17,9 +17,9 @@ namespace RecipeThesaurus
         public int likes;
         public string url;
         public string author;
-        public List<int> ingredientsIdList = new List<int>();
+        public List<string> ingredientsList = new List<string>();
 
-        public Recipe(int pid, string pname, string pdesc, string pinst, int plikes, string purl, string pauthor, List<int> pingredientsIdList=null)
+        public Recipe(int pid, string pname, string pdesc, string pinst, int plikes, string purl, string pauthor, List<string> pingredientsList = null)
         {
             id = pid;
             name = pname;
@@ -28,7 +28,8 @@ namespace RecipeThesaurus
             likes = plikes;
             url = purl;
             author = pauthor;
-            ingredientsIdList = pingredientsIdList;
+
+            if(pingredientsList != null) ingredientsList = pingredientsList;
         }
 
         public void Log()
@@ -94,62 +95,112 @@ namespace RecipeThesaurus
             // Need to also select 'recipeIngredients' when its been added to the sql
 
             string getRecipe = $"SELECT recipeId, recipeName, recipeDescription, recipeInstructions, recipeLikes, imageURL, recipeAuthor FROM recipes";
-            
+
             if (SQL_VER)
             {
+                
                 conn.Open();
-                SqlCommand command = new SqlCommand(getRecipe, conn);
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    ReadSql(reader);
-                }
+                //SqlCommand command = new SqlCommand(getRecipe, conn);
+                //using (SqlDataReader reader = command.ExecuteReader())
+                //{
+                    ReadSql(getRecipe);
+                //}
             }
             else
             {
                 conn2.Open();
-                SqliteCommand command = new SqliteCommand(getRecipe, conn2);
-                using (SqliteDataReader reader = command.ExecuteReader())
+                
+                ReadSqlite(getRecipe);
+                
+            }
+        }
+
+        public void ReadSql(string getRecipe)
+        {
+
+            SqlCommand command = new SqlCommand(getRecipe, conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
                 {
-                    ReadSqlite(reader);
+                    int id = Convert.ToInt32(reader["recipeId"]);
+                    string name = reader["recipeName"].ToString();
+                    string desc = reader["recipeDescription"].ToString();
+                    string inst = reader["recipeInstructions"].ToString();
+                    int like = Convert.ToInt32(reader["recipeLikes"]);
+                    string url = reader["imageURL"].ToString();
+                    string auth = reader["recipeAuthor"].ToString();
+                    // string ingr = reader["recipeIngredients"].ToString();
+
+                    Recipe recipe = new Recipe(id, name, desc, inst, like, url, auth/*, ingr*/);
+                    recipes.Add(recipe);
+                }
+            }
+
+
+            string sqlGetRecipeIngredients = "select distinct recipeIngredients.ingredient FROM recipeIngredients where recipeIngredients.recipeId = {0};";
+            foreach (Recipe i in recipes)
+            {
+                //getRecipeIngredients.CommandText = String.Format(sqlGetRecipeIngredients, i.id); //getting ingredients query results for the recipe id
+                SqlCommand getRecipeIngredients = new SqlCommand(String.Format(sqlGetRecipeIngredients, i.id), conn);
+
+                using (var ingredientsReader = getRecipeIngredients.ExecuteReader())
+                {
+                    bool more = ingredientsReader.Read();
+                    while (more)
+                    {
+                        i.ingredientsList.Add(ingredientsReader["ingredient"].ToString());
+                        more = ingredientsReader.Read();
+                    }
+                }
+            }
+
+
+        }
+
+
+
+
+        public void ReadSqlite(string getRecipe)
+        {
+            SqliteCommand command = new SqliteCommand(getRecipe, conn2);
+            using (SqliteDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int id = Convert.ToInt32(reader["recipeId"]);
+                    string name = reader["recipeName"].ToString();
+                    string desc = reader["recipeDescription"].ToString();
+                    string inst = reader["recipeInstructions"].ToString();
+                    int like = Convert.ToInt32(reader["recipeLikes"]);
+                    string url = reader["imageURL"].ToString();
+                    string auth = reader["recipeAuthor"].ToString();
+                    // string ingr = reader["recipeIngredients"].ToString();
+
+                    Recipe recipe = new Recipe(id, name, desc, inst, like, url, auth/*, ingr*/);
+                    recipes.Add(recipe);
+                }
+            }
+
+            string sqlGetRecipeIngredients = "select distinct recipeIngredients.ingredient FROM recipeIngredients where recipeIngredients.recipeId = {0};";
+            foreach (Recipe i in recipes)
+            {
+                //getRecipeIngredients.CommandText = String.Format(sqlGetRecipeIngredients, i.id); //getting ingredients query results for the recipe id
+                SqliteCommand getRecipeIngredients = new SqliteCommand(String.Format(sqlGetRecipeIngredients, i.id), conn2);
+
+                using (var ingredientsReader = getRecipeIngredients.ExecuteReader())
+                {
+                    bool more = ingredientsReader.Read();
+                    while (more)
+                    {
+                        i.ingredientsList.Add(ingredientsReader["ingredient"].ToString());
+                        more = ingredientsReader.Read();
+                    }
                 }
             }
         }
 
-        public void ReadSql(SqlDataReader reader)
-        {
-            while (reader.Read())
-            {
-                int id = Convert.ToInt32(reader["recipeId"]);
-                string name = reader["recipeName"].ToString();
-                string desc = reader["recipeDescription"].ToString();
-                string inst = reader["recipeInstructions"].ToString();
-                int like = Convert.ToInt32(reader["recipeLikes"]);
-                string url = reader["imageURL"].ToString();
-                string auth = reader["recipeAuthor"].ToString();
-                // string ingr = reader["recipeIngredients"].ToString();
 
-                Recipe recipe = new Recipe(id, name, desc, inst, like, url, auth/*, ingr*/);
-                recipes.Add(recipe);
-            }
-        }
-
-        public void ReadSqlite(SqliteDataReader reader)
-        {
-            while (reader.Read())
-            {
-                int id = Convert.ToInt32(reader["recipeId"]);
-                string name = reader["recipeName"].ToString();
-                string desc = reader["recipeDescription"].ToString();
-                string inst = reader["recipeInstructions"].ToString();
-                int like = Convert.ToInt32(reader["recipeLikes"]);
-                string url = reader["imageURL"].ToString();
-                string auth = reader["recipeAuthor"].ToString();
-                // string ingr = reader["recipeIngredients"].ToString();
-
-                Recipe recipe = new Recipe(id, name, desc, inst, like, url, auth/*, ingr*/);
-                recipes.Add(recipe);
-            }
-        }
 
         // Clears all stored recipes 
         public void ClearRecipes()
