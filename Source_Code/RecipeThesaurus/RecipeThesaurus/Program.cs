@@ -4,13 +4,14 @@ using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Extensions.Configuration;
 
-/*
+
 //Use this for sqlite
 using RecipeThesaurus;
-
-sqlite a = new sqlite();
+bool sqlMode = false;
+bool run_webpage = false;
+sqlite a = new sqlite(sqlMode, run_webpage);
 a.run();
-*/
+
 
 var builder = WebApplication.CreateBuilder(args);
 
