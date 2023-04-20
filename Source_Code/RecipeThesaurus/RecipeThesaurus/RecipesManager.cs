@@ -61,12 +61,12 @@ namespace RecipeThesaurus
         public void CreateRecipe(string pUsername)
         {
             int id = 4;
-            string name = " A";
-            string desc = " A";
-            string inst = " A";
-            string url = " A";
-            string username = " A";
-            string ingredients = " A";
+            string name = "CreateRecipe()";
+            string desc = "Function to create a recipe";
+            string inst = "In the code";
+            string url = "null";
+            string username = "Nikolai";
+            string ingredients = "None";
             // need to add ingredients
 
 
