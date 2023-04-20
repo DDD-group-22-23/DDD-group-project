@@ -15,7 +15,15 @@
             <h2>Recipes</h2>
             <!-- Insert -->
             <div class="recipeBox">
-                <p>This is a recipe</p>
+                @{
+                    foreach (var item in ViewData["RecipeList"] as List<Recipe>)
+                    {
+                        <div class="recipeBox">
+                            <h3>@item.name</h3>
+                            @item.description
+                        </div>
+                    }
+                }
                 <!--getdata-->
             </div>
             <p>Some text..</p>

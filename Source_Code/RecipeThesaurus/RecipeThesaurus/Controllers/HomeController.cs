@@ -10,11 +10,16 @@ public class HomeController : Controller
 
     public HomeController(ILogger<HomeController> logger)
     {
+
         _logger = logger;
     }
 
     public IActionResult Index()
     {
+        // Connection needs to be set up
+        DBManager man = new DBManager(false, true);
+        man.run();
+        ViewData["RecipeList"] = man.recipesManager.recipes;
         return View();
     }
 
