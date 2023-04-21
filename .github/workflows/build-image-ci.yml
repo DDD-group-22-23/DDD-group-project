@@ -29,10 +29,10 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:Source_Code/RecipeThesaurus/RecipeThesaurus"
+          context: "{{defaultContext}}:Source_Code/RecipeThesaurus"
           platforms: linux/amd64
           push: true
-          dockerfile: ./<path-to-dockerfile>/Dockerfile
+          file: ./Source_Code/RecipeThesaurus/RecipeThesaurus/Dockerfile
           tags: |
             user/recipethesaurus-app:latest
             recipethesaurus.azurecr.io/recipethesaurus-app:latest
