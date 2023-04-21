@@ -1,9 +1,9 @@
-name: ci
+name: build-image-ci
 
 on:
   push:
     branches:
-      - "develop"
+      - "*"
 
 jobs:
   docker:
