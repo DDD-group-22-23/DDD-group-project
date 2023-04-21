@@ -39,24 +39,24 @@ jobs:
       - 
         name: connect to AKS
         uses: Azure/aks-set-context@v1
-           with:
-              creds: '${{ secrets.AZURE_CREDENTIALS }}'
-              cluster-name: BackofficeAKSCluster
-              resource-group: Backoffice
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+          cluster-name: BackofficeAKSCluster
+          resource-group: Backoffice
       - 
         name: Run mainifests
         uses: Azure/k8s-deploy@v4
-           with:
-              action: deploy
-              manifests: |
-                Source_Code/k8s/0_ingress_Controller.yaml
-                Source_Code/k8s/1_Backend_externalDNSconfig.yaml
-                Source_Code/k8s/2_Backend_Premium_PV.yaml
-                Source_Code/k8s/3_Backend_Standard_PV.yaml
-                Source_Code/k8s/4_Backend_Premium_PVC.yaml
-                Source_Code/k8s/5_Backend_Standard_PVC.yaml
-                Source_Code/k8s/6_Backend_SearchandDB.yaml
-                Source_Code/k8s/7_Backend_FusionAuth_App.yaml
-                Source_Code/k8s/8_Backend_nginx.yaml
-                Source_Code/k8s/9_Frontend_RecipeThesaurus_app.yaml
-                Source_Code/k8s/10_Frontend_DNS_Deployment.yaml
+        with:
+           action: deploy
+           manifests: |
+             Source_Code/k8s/0_ingress_Controller.yaml
+             Source_Code/k8s/1_Backend_externalDNSconfig.yaml
+             Source_Code/k8s/2_Backend_Premium_PV.yaml
+             Source_Code/k8s/3_Backend_Standard_PV.yaml
+             Source_Code/k8s/4_Backend_Premium_PVC.yaml
+             Source_Code/k8s/5_Backend_Standard_PVC.yaml
+             Source_Code/k8s/6_Backend_SearchandDB.yaml
+             Source_Code/k8s/7_Backend_FusionAuth_App.yaml
+             Source_Code/k8s/8_Backend_nginx.yaml
+             Source_Code/k8s/9_Frontend_RecipeThesaurus_app.yaml
+             Source_Code/k8s/10_Frontend_DNS_Deployment.yaml
