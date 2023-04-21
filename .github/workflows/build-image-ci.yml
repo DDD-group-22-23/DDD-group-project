@@ -34,5 +34,4 @@ jobs:
           push: true
           file: ./Source_Code/RecipeThesaurus/RecipeThesaurus/Dockerfile
           tags: |
-            user/recipethesaurus-app:latest
             recipethesaurus.azurecr.io/recipethesaurus-app:latest
