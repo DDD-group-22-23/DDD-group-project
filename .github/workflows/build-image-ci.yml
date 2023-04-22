@@ -58,7 +58,7 @@ jobs:
        name: Run mainifests (ingress)
        uses: Azure/k8s-deploy@v4
        with:
-           namespace: nginx-ingress
+           namespace: ingress-nginx
            action: deploy
            manifests: |
              Source_Code/k8s/0_ingress_Controller.yaml
@@ -67,6 +67,7 @@ jobs:
        uses: Azure/k8s-deploy@v4
        with:
            action: deploy
+           namespace: default
            manifests: |
              Source_Code/k8s/1_Backend_externalDNSconfig.yaml
              Source_Code/k8s/2_Backend_Premium_PV.yaml
