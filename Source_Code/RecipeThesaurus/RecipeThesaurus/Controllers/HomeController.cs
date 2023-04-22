@@ -16,8 +16,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        // DBManager needs to be set somewhere higher because its being recreated everywhere
+
         // Connection needs to be set up
         DBManager man = new DBManager(false);
+        //man.SetConnection(connection);
         man.recipesManager.GetRecipes();
         ViewData["RecipeList"] = man.recipesManager.recipes;
         return View();
@@ -40,6 +43,8 @@ public class HomeController : Controller
 
     public IActionResult Saved()
     {
+        // DBManager needs to be set somewhere higher because its being recreated everywhere
+
         DBManager man = new DBManager(false);
         string username = "david"; // change to cookies.username
         User david = man.userManager.getUserByUsername(username);

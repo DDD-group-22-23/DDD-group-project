@@ -19,6 +19,8 @@ namespace RecipeThesaurus.Controllers
         }
         public IActionResult Search()
         {
+            // DBManager needs to be set somewhere higher because its being recreated everywhere
+
             DBManager man = new DBManager(false);
             man.recipesManager.GetRecipes();
             string like = Request.Form["search"];
