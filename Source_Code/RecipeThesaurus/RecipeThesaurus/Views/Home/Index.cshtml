@@ -2,35 +2,112 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <!--<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
-    <!-- Display some random information-->
-    
+
+<style>
+        .recipes {
+    position: absolute;
+    width: 911px;
+    display: inline-block;
+    margin: auto;
+    left: 50%;
+    margin-left: -455px;
+}
+
+
+.recipeBox
+{
+    width:911px;
+    margin:auto;
+    font-family:sans-serif;
+    display:inline-block;
+    background:#E4ECEF;
+    color:black;
+    padding:20px;
+    margin-top: 20px;
+}
+
+
+.recipeBoxHeader
+{
+    text-align: center;
+}
+
+
+.recipeBoxHeader h1
+{
+    display:inline-block;
+    margin:10px;
+}
+
+.recipeBoxHeader::after
+{
+    content: "";
+  border: 1px solid black;
+  display: block;
+  height: 0px;
+  margin: auto;
+  margin-top:40px;
+  margin-bottom:40px;
+}
+
+
+.imgPlaceholderLeft
+{
+    display: inline-block;
+    background:black;
+    height:40px;
+    width:40px;
+    float:left;
+}
+
+.imgPlaceholderRight
+{
+    display: inline-block;
+    background:black;
+    height:40px;
+    width:40px;
+    float:right;
+
+}
+
+.recipeBox h2{
+    font-size: 30px;
+}
+
+.recipeBox li, .recipeBox p{
+    font-size: 20px;
+}
+</style>
+
+
+
+<body>
+
+<div class="recipes">
+    @{
+        foreach (var item in ViewData["RecipeList"] as List<Recipe>)
+        {
+            <div class="recipeBox">
+                <div class="recipeBoxHeader">
+                    <h1>@item.name</h1>
+                    <p>@item.description</p>
+                </div>
+                <h2>Ingredients</h2>
+                <ul>
+                @{
+                    foreach (var ingredient in item.ingredientsList as List<string>)
+                    {
+                        <li>@ingredient</li>
+                    }
+                }   
+                </ul>
+
+                <h2>Steps</h2>
+                <p>@item.instructions</p>
+
+            </div>
+        }
+    }  
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <h2>Recipes</h2>
-            <!-- Insert -->
-            <div class="recipeBox">
-                @{
-                    foreach (var item in ViewData["RecipeList"] as List<Recipe>)
-                    {
-                        <div class="recipeBox">
-                            <h3>@item.name</h3>
-                            @item.description
-                        </div>
-                    }
-                }
-                <!--getdata-->
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <h2>Events and people</h2>
-            <p>Some text..</p>
-            <p>Some more text..</p>
-        </div>
-    </div>
-</div>
+</body>
