@@ -17,10 +17,9 @@ namespace RecipeThesaurus
         public bool SQL_VER;
         public bool RUN_WEBPAGE;
 
-        public DBManager(bool sql, bool web)
+        public DBManager(bool sql)
         {
             SQL_VER = sql;
-            RUN_WEBPAGE = web;
         }
 
         public void SetConnection(SqlConnection con)
@@ -200,10 +199,6 @@ INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
 
             recipesManager.GetRecipes();
             Output();
-            while (!RUN_WEBPAGE)
-            {
-                // stops webpage from running
-            }
         }
     }
 }
