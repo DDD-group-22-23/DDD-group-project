@@ -1,8 +1,4 @@
-﻿
-@using Microsoft.AspNetCore.Components.Forms
-@using Microsoft.AspNetCore.Components
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,11 +15,6 @@
             color: black;
         }
 
-
-
-
-
-
     </style>
 
 </head>
@@ -38,14 +29,9 @@
                         <div id="myName" style="float:left;">David</div>
                     </div>
             
-                    <form action="">
-                    <input class="searchBar" type="text" placeholder="Search.." name="search" onsubmit="" asp-controller="Home" >
-
+                    <form asp-controller="Secrets" asp-action="Search">
+                    <input class="searchBar" type="text" placeholder="Search.." name="search">
                   </form>
-
-      
-
-
                 </div>
         
                 <div style="padding:10px">
@@ -99,11 +85,11 @@
         </main>
     </div>
 
-    <!--<footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - RecipeThesaurus - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>-->
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
