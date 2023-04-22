@@ -12,40 +12,49 @@ namespace RecipeThesaurus
 {
     public class DBManager
     {
+        public SqlConnection conn;
+        public SqliteConnection conn2;
         public RecipesManager recipesManager;
         public UserManager userManager;
         public bool SQL_VER;
         public bool RUN_WEBPAGE;
 
-        public DBManager(bool sql, bool web)
+        public DBManager(bool sql)
         {
             SQL_VER = sql;
-            RUN_WEBPAGE = web;
+            if (sql)
+            {
+                // Add code for sql connection
+            }
+            else
+            {
+                var connBuilder = new SqliteConnectionStringBuilder();
+                connBuilder.DataSource = "./sqliteDB.db";
+                conn2 = new SqliteConnection(connBuilder.ConnectionString);
+                userManager = new UserManager(conn2);
+                recipesManager = new RecipesManager(conn2);
+            }
         }
 
         public void SetConnection(SqlConnection con)
         {
+            conn = con;
             recipesManager.conn = con;
         }
         public void SetConnection(SqliteConnection con)
         {
+            conn2 = con;
             recipesManager.conn2 = con;
         }
 
         // Creates sqlite database for use
         public void createDb()
         {
-            var connBuilder = new SqliteConnectionStringBuilder();
-            connBuilder.DataSource = "./sqliteDB.db";
-
-            using (SqliteConnection conn = new SqliteConnection(connBuilder.ConnectionString))
+            using (conn2)
             {
-                conn.Open();
+                conn2.Open();
 
-                userManager = new UserManager(conn);
-                recipesManager = new RecipesManager(conn);
-
-                var delCmd = conn.CreateCommand();
+                var delCmd = conn2.CreateCommand();
                 delCmd.CommandText = "DROP TABLE IF EXISTS userIngredientLikes;" +
                     "DROP TABLE IF EXISTS userIngredientDislikes;" +
                     "DROP TABLE IF EXISTS userFridge;" +
@@ -55,7 +64,7 @@ namespace RecipeThesaurus
                     "DROP TABLE IF EXISTS users;";
                 delCmd.ExecuteNonQuery();
 
-                var createDatabase = conn.CreateCommand();
+                var createDatabase = conn2.CreateCommand();
                 createDatabase.CommandText = @"CREATE TABLE users(
                 username varchar(20) NOT NULL,
                 firstname varchar(20),
@@ -109,7 +118,7 @@ namespace RecipeThesaurus
                 ";
                 createDatabase.ExecuteNonQuery();
 
-                var fillDatabase = conn.CreateCommand();
+                var fillDatabase = conn2.CreateCommand();
                 fillDatabase.CommandText = @"INSERT INTO users VALUES ('jasper', 'jasper', 'Johnson', 'jasper@RecipeThesaurus.software', null);
 INSERT INTO users VALUES ('tanika', 'Tankia', 'Astley', 'tanika@RecipeThesaurus.software', null);
 INSERT INTO users VALUES ('fernando', 'fernando', 'Ansley', 'fernando@RecipeThesaurus.software', null);
@@ -144,13 +153,13 @@ INSERT INTO userIngredientLikes VALUES ('david', 'sweetcorn');
 
 
 
-
 INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
+
                 fillDatabase.ExecuteNonQuery();
 
-                using (var transaction = conn.BeginTransaction())
+                using (var transaction = conn2.BeginTransaction())
                 {
-                    var istCmd = conn.CreateCommand();
+                    var istCmd = conn2.CreateCommand();
                     istCmd.CommandText = "INSERT INTO recipes VALUES(0,'Korean fried chicken','Cook an exotic yet easy dinner like these spicy and sticky Korean chicken wings. They make ideal finger food for a buffet, but dont forget the napkins','To make the sauce, put all the ingredients in a saucepan and simmer gently until syrupy, so around 3-4 mins. Take off the heat and set aside. Season the chicken wings with salt, pepper and the grated ginger. Toss the chicken with the cornflour until completely coated. Heat about 2cm of vegetable oil in a large frying pan over a medium/high heat. Fry the chicken wings for 8-10 mins until crisp, turning halfway. Remove from the oil and place on kitchen paper. Leave to cool slightly (around 2 mins). Reheat the sauce, and toss the crispy chicken wings in it. Tip into a bowl and top with the sesame seeds and sliced spring onions.',0,'url','Elena Silcock')";
                     istCmd.ExecuteNonQuery();
                     istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(0,'chicken');";
@@ -162,6 +171,11 @@ INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
                     istCmd.CommandText = "INSERT INTO recipes VALUES(2,'Dark Jamaican Gingerbread','This cake, originally from the sugar-and-spice island of Jamaica, has sadly become a factory-made clone, but made at home it’s dark, sticky, fragrant with ginger – the real thing.', 'Begin by placing the tin of black treacle (without a lid) in a saucepan of barely simmering water to warm it and make it easier to measure. Sift the flour and spices into a large bowl, then mix the bicarbonate of soda with the milk and set it on one side. Now measure the black treacle, golden syrup, sugar and butter into a saucepan with 75ml of water, heat and gently stir until thoroughly melted and blended – don’t let it come anywhere near the boil and don’t go off and leave it! Next add the syrup mixture to the flour and spices, beating vigorously with a wooden spoon, and when the mixture is smooth, beat in the egg a little at a time, followed by the bicarbonate of soda and milk. Now pour the mixture into the prepared tin and bake on a lower shelf so that the top of the tin is aligned with the centre of the oven for 1¼–1½ hours until it’s well-risen and firm to the touch. Remove the cake from the oven and allow to cool in the tin for 5 minutes before turning out.', 0, null, 'Delia')";
                     istCmd.ExecuteNonQuery();
 
+
+                    istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 0);";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 2);";
+                    istCmd.ExecuteNonQuery();
                     transaction.Commit();
                 }
             }
@@ -177,7 +191,7 @@ INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
             }
         }
 
-        // To run remove lines 7-13 in Program.cs
+        // Used for testing databases and connection
         public void run()
         {
             if (SQL_VER)
@@ -200,10 +214,6 @@ INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
 
             recipesManager.GetRecipes();
             Output();
-            while (!RUN_WEBPAGE)
-            {
-                // stops webpage from running
-            }
         }
     }
 }

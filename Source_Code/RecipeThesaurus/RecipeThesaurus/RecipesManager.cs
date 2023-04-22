@@ -46,17 +46,56 @@ namespace RecipeThesaurus
         public SqliteConnection conn2;
         bool SQL_VER = false;
 
-        public RecipesManager(SqlConnection con = null)
+        public RecipesManager(SqlConnection con)
         {
             conn = con;
             SQL_VER = true;
         }
-        public RecipesManager(SqliteConnection con = null)
+        public RecipesManager(SqliteConnection con)
         {
             conn2 = con;
-
         }
 
+        public List<Recipe>? GetRecipesLike(string like)
+        {
+            if (like == null) return null;
+
+            List<Recipe> likeRecipes = new List<Recipe>();
+
+            foreach (Recipe recipe in recipes)
+            {
+                if (recipe.name.Contains(like))
+                {
+                    likeRecipes.Add(recipe);
+                }
+                else if (recipe.description.Contains(like))
+                {
+                    likeRecipes.Add(recipe);
+                }
+                else if (recipe.instructions.Contains(like))
+                {
+                    likeRecipes.Add(recipe);
+                }
+                else if (recipe.author.Contains(like)) 
+                { 
+                likeRecipes.Add(recipe);
+                }
+            }
+            return likeRecipes;
+        }
+
+        public List<Recipe> GetRecipesIds(List<string> ids)
+        {
+            List<Recipe> like = new List<Recipe>();
+            foreach (Recipe recipe in recipes)
+            {
+                if (ids.Contains(recipe.id.ToString()))
+                {
+                    like.Add(recipe);
+                }
+            }
+            return (like);
+        }
         // Gets recipe information then stores
         public void CreateRecipe(string pUsername)
         {
@@ -100,16 +139,11 @@ namespace RecipeThesaurus
             {
                 
                 conn.Open();
-                //SqlCommand command = new SqlCommand(getRecipe, conn);
-                //using (SqlDataReader reader = command.ExecuteReader())
-                //{
-                    ReadSql(getRecipe);
-                //}
+                ReadSql(getRecipe);
             }
             else
             {
                 conn2.Open();
-                
                 ReadSqlite(getRecipe);
                 
             }
@@ -157,10 +191,6 @@ namespace RecipeThesaurus
 
 
         }
-
-
-
-
         public void ReadSqlite(string getRecipe)
         {
             SqliteCommand command = new SqliteCommand(getRecipe, conn2);
