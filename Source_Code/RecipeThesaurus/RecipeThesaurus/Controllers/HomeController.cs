@@ -18,7 +18,7 @@ public class HomeController : Controller
     {
         // Connection needs to be set up
         DBManager man = new DBManager(false);
-        man.run();
+        man.recipesManager.GetRecipes();
         ViewData["RecipeList"] = man.recipesManager.recipes;
         return View();
     }

@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 //Use this for sqlite
 using RecipeThesaurus;
 bool sqlMode = false;
-bool run_webpage = false;
 DBManager a = new DBManager(sqlMode);
 a.run();
 */
