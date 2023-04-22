@@ -3,7 +3,7 @@ name: build-image-ci
 on:
   push:
     branches:
-      - "*"
+      - "main"
 
 jobs:
   docker:
