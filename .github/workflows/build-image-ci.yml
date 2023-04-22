@@ -53,7 +53,7 @@ jobs:
        uses: azure/k8s-set-context@v3
        with:
           method: kubeconfig
-          kubeconfig:  ${{ secrets.KUBE_CONFIG }}
+          kubeconfig:  ${{ secrets.KUBE_CONFIG_RAW }}
       -
        name: Run mainifests
        uses: Azure/k8s-deploy@v4
