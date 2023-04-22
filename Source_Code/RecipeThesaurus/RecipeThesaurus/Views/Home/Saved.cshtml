@@ -4,3 +4,20 @@
 @{
     ViewData["Title"] = "Saved";
 }
+
+
+<div class="text-center">
+
+    <p>
+        @{
+            <h1 class="display-4">Saved recipes @ViewData["Target"]</h1>
+            foreach (var item in ViewData["RecipeList"] as List<Recipe>)
+            {
+                <div class="recipeBox">
+                    <h3>@item.name</h3>
+                    @item.description
+                </div>
+            }
+        }
+    </p>
+</div>

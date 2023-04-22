@@ -40,6 +40,12 @@ public class HomeController : Controller
 
     public IActionResult Saved()
     {
+        DBManager man = new DBManager(false);
+        User david = man.userManager.getUserByUsername("david");
+        man.recipesManager.GetRecipes();
+        List<string> like = david.savedRecipes;
+        List<Recipe>? recipes = man.recipesManager.GetRecipesIds(like);
+        ViewData["RecipeList"] = recipes;
         return View();
     }
 

@@ -84,6 +84,18 @@ namespace RecipeThesaurus
             return likeRecipes;
         }
 
+        public List<Recipe> GetRecipesIds(List<string> ids)
+        {
+            List<Recipe> like = new List<Recipe>();
+            foreach (Recipe recipe in recipes)
+            {
+                if (ids.Contains(recipe.id.ToString()))
+                {
+                    like.Add(recipe);
+                }
+            }
+            return (like);
+        }
         // Gets recipe information then stores
         public void CreateRecipe(string pUsername)
         {

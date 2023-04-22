@@ -153,8 +153,8 @@ INSERT INTO userIngredientLikes VALUES ('david', 'sweetcorn');
 
 
 
-
 INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
+
                 fillDatabase.ExecuteNonQuery();
 
                 using (var transaction = conn2.BeginTransaction())
@@ -171,6 +171,11 @@ INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
                     istCmd.CommandText = "INSERT INTO recipes VALUES(2,'Dark Jamaican Gingerbread','This cake, originally from the sugar-and-spice island of Jamaica, has sadly become a factory-made clone, but made at home it’s dark, sticky, fragrant with ginger – the real thing.', 'Begin by placing the tin of black treacle (without a lid) in a saucepan of barely simmering water to warm it and make it easier to measure. Sift the flour and spices into a large bowl, then mix the bicarbonate of soda with the milk and set it on one side. Now measure the black treacle, golden syrup, sugar and butter into a saucepan with 75ml of water, heat and gently stir until thoroughly melted and blended – don’t let it come anywhere near the boil and don’t go off and leave it! Next add the syrup mixture to the flour and spices, beating vigorously with a wooden spoon, and when the mixture is smooth, beat in the egg a little at a time, followed by the bicarbonate of soda and milk. Now pour the mixture into the prepared tin and bake on a lower shelf so that the top of the tin is aligned with the centre of the oven for 1¼–1½ hours until it’s well-risen and firm to the touch. Remove the cake from the oven and allow to cool in the tin for 5 minutes before turning out.', 0, null, 'Delia')";
                     istCmd.ExecuteNonQuery();
 
+
+                    istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 0);";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 2);";
+                    istCmd.ExecuteNonQuery();
                     transaction.Commit();
                 }
             }
