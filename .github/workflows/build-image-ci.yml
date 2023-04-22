@@ -35,16 +35,11 @@ jobs:
           file: ./Source_Code/RecipeThesaurus/RecipeThesaurus/Dockerfile
           tags: |
             recipethesaurus.azurecr.io/recipethesaurus-app:latest
-      - 
-        name: setup kubectl 
-        uses: azure/setup-kubectl@v2.0
-      - 
-        name: connect to AKS
-        uses: Azure/aks-set-context@v1
+
+      - name: Set up Kubectl
+        uses: azure/setup-kubectl@v1
         with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
-          cluster-name: BackofficeAKSCluster
-          resource-group: Backoffice
+          version: 'latest'
       - 
         name: Run mainifests
         uses: Azure/k8s-deploy@v4
