@@ -41,7 +41,8 @@ public class HomeController : Controller
     public IActionResult Saved()
     {
         DBManager man = new DBManager(false);
-        User david = man.userManager.getUserByUsername("david");
+        string username = "david"; // change to cookies.username
+        User david = man.userManager.getUserByUsername(username);
         man.recipesManager.GetRecipes();
         List<string> like = david.savedRecipes;
         List<Recipe>? recipes = man.recipesManager.GetRecipesIds(like);
