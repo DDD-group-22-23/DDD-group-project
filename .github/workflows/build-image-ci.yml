@@ -35,22 +35,29 @@ jobs:
           file: ./Source_Code/RecipeThesaurus/RecipeThesaurus/Dockerfile
           tags: |
             recipethesaurus.azurecr.io/recipethesaurus-app:latest
-      -  
+
+      - 
        name: Set up Kubectl
+       uses: azure/setup-kubectl@v1
+       with:
+         version: 'latest'
+      -         
+       name: connect to AKS
        uses: actions-hub/kubectl@master
        env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
        with:
           args: get pods
       - 
-       name: Set up Kubectl
-       uses: azure/setup-kubectl@v1
+       name: set context
+       uses: azure/k8s-set-context@v3
        with:
-         version: 'latest'
-      - 
-        name: Run mainifests
-        uses: Azure/k8s-deploy@v4
-        with:
+          method: kubeconfig
+          kubeconfig:  ${{ secrets.KUBE_CONFIG }}
+      -
+       name: Run mainifests
+       uses: Azure/k8s-deploy@v4
+       with:
            action: deploy
            manifests: |
              Source_Code/k8s/0_ingress_Controller.yaml
