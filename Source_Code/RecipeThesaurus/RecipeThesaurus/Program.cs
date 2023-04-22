@@ -4,6 +4,14 @@ using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Extensions.Configuration;
 
+/*
+//Use this for sqlite
+using RecipeThesaurus;
+
+sqlite a = new sqlite();
+a.run();
+*/
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -55,6 +63,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapControllerRoute(
+    name: "db",
+    pattern: "{controller=DB}/{action=Index}/{id?}");
 app.Run();
 
