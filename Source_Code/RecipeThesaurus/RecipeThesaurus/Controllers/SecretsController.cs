@@ -11,7 +11,7 @@ namespace RecipeThesaurus.Controllers
 {
     public class SecretsController : Controller
     {
-        //[Authorize] -- Causing errors
+        [Authorize]
         // GET: /<controller>/
         public IActionResult Recpies()
         {
