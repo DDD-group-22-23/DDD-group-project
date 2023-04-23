@@ -13,9 +13,13 @@ namespace RecipeThesaurus.Controllers
     {
         [Authorize]
         // GET: /<controller>/
-        public IActionResult Recpies()
-        {
+        //public IActionResult Recpies()
+        //{
             // Not implemented - To be removed? No need to look at individual recipes
+        //    return View();
+        //}
+	public IActionResult Index()
+        {
             return View();
         }
         public IActionResult Search()

@@ -30,7 +30,7 @@ builder.Services
 
         options.ClientId = "75dc9e9f-ee9b-4baf-afb5-cde509ee94d7";
         options.ClientSecret = "JF2rzNTNHUEIwV5O1vshA6s5q4wGhCoBMff7w9DpPR0";
-        options.Authority = "http://backoffice.recipethesaurus.software:9011/.well-known/openid-configuration/13bbefea-b1d0-11ed-9c51-6adf74905334";
+        options.Authority = "http://backoffice.recipethesaurus.software/.well-known/openid-configuration/13bbefea-b1d0-11ed-9c51-6adf74905334";
 
         options.GetClaimsFromUserInfoEndpoint = true;
         options.RequireHttpsMetadata = false;
@@ -63,8 +63,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapControllerRoute(
-    name: "db",
-    pattern: "{controller=DB}/{action=Index}/{id?}");
 app.Run();
 
