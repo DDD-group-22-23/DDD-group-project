@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Extensions.Configuration;
 
 
-//Use this for sqlite
+// If sqlite database is updated this needs to be run
 using RecipeThesaurus;
 bool sqlMode = false;
 DBManager a = new DBManager(sqlMode);

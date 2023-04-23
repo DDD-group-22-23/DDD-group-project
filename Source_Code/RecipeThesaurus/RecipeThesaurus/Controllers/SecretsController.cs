@@ -15,6 +15,7 @@ namespace RecipeThesaurus.Controllers
         // GET: /<controller>/
         public IActionResult Recpies()
         {
+            // Not implemented - To be removed? No need to look at individual recipes
             return View();
         }
         public IActionResult Search()

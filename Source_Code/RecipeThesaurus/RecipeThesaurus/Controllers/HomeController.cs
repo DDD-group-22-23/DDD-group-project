@@ -21,7 +21,6 @@ public class HomeController : Controller
 
         // Connection needs to be set up
         DBManager man = new DBManager(false);
-        //man.SetConnection(connection);
         man.recipesManager.GetRecipes();
         ViewData["RecipeList"] = man.recipesManager.recipes;
         return View();
@@ -34,12 +33,23 @@ public class HomeController : Controller
 
     public IActionResult Recommend()
     {
+        // Not implemented
         return View();
     }
 
     public IActionResult Settings()
     {
+        // Not implemented
         return View();
+    }
+
+    public IActionResult SaveRecipe()
+    {
+        DBManager man = new DBManager(false);
+        User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
+        int id = Convert.ToInt32(Request.Form["id"]);
+        man.recipesManager.SaveRecipe(id, user);
+        return RedirectToAction("Index");
     }
 
     public IActionResult Saved()
@@ -48,9 +58,9 @@ public class HomeController : Controller
 
         DBManager man = new DBManager(false);
         string username = "david"; // change to cookies.username
-        User david = man.userManager.getUserByUsername(username);
+        User user = man.userManager.getUserByUsername(username);
         man.recipesManager.GetRecipes();
-        List<string> like = david.savedRecipes;
+        List<string> like = user.savedRecipes;
         List<Recipe>? recipes = man.recipesManager.GetRecipesIds(like);
         ViewData["RecipeList"] = recipes;
         return View();
@@ -75,11 +85,13 @@ public class HomeController : Controller
 
     public IActionResult People()
     {
+        // Not implemented
         return View();
     }
 
     public IActionResult Fridge()
     {
+        // Not implemented
         return View();
     }
 

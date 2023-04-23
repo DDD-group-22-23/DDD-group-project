@@ -4,7 +4,7 @@
 
 
 <style>
-        .recipes {
+.recipes {
     position: absolute;
     width: 911px;
     display: inline-block;
@@ -88,6 +88,12 @@
         foreach (var item in ViewData["RecipeList"] as List<Recipe>)
         {
             <div class="recipeBox">
+
+                <form asp-controller="Home" asp-action="SaveRecipe">
+                    <button type="submit" name="save" width="50"> Save</button>
+                    <input type="hidden" name="id" value="@item.id">
+                </form>
+
                 <div class="recipeBoxHeader">
                     <h1>@item.name</h1>
                     <p>@item.description</p>

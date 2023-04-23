@@ -57,6 +57,28 @@ namespace RecipeThesaurus
             conn2 = con;
         }
 
+        public void SaveRecipe(int id, User user)
+        {
+            if (user.savedRecipes.Contains(id.ToString()))
+            {
+                return; // stops duplicate saved
+            }
+            
+
+            string saveRecipe = $"INSERT INTO savedRecipes VALUES('{user.username}', {id});";
+            if(SQL_VER)
+            {
+                SqlCommand command = new SqlCommand(saveRecipe, conn);
+                command.ExecuteNonQuery();
+            }
+            else
+            {
+                SqliteCommand command = new SqliteCommand(saveRecipe, conn2);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        // Searches all recipes for a string matching the query
         public List<Recipe>? GetRecipesLike(string like)
         {
             if (like == null) return null;
@@ -69,15 +91,15 @@ namespace RecipeThesaurus
                 {
                     likeRecipes.Add(recipe);
                 }
+                else if (recipe.author.Contains(like))
+                {
+                    likeRecipes.Add(recipe);
+                }
                 else if (recipe.description.Contains(like))
                 {
                     likeRecipes.Add(recipe);
                 }
-                else if (recipe.instructions.Contains(like))
-                {
-                    likeRecipes.Add(recipe);
-                }
-                else if (recipe.author.Contains(like)) 
+                else if (recipe.instructions.Contains(like)) 
                 { 
                 likeRecipes.Add(recipe);
                 }
@@ -85,6 +107,7 @@ namespace RecipeThesaurus
             return likeRecipes;
         }
 
+        // Gets ids for each recipe to identify saved ids
         public List<Recipe> GetRecipesIds(List<string> ids)
         {
             List<Recipe> like = new List<Recipe>();
@@ -97,18 +120,11 @@ namespace RecipeThesaurus
             }
             return (like);
         }
-        // Gets recipe information then stores
+
+        // Creates a recipe based of the form submitted
         public void CreateRecipe(string t, string d, string ing, string ist, string url, string use)
         {
             int id = recipes.Count();
-            //string name = "createrecipe()";
-            //string desc = "function to create a recipe";
-            //string inst = "in the code";
-            //string url = "null";
-            //string username = "nikolai";
-            //string ingredients = "none";
-            // need to add ingredients
-
 
             string fields = $"(recipeId, recipeName, recipeDescription, recipeInstructions, recipeLikes, imageURL, recipeAuthor)";
             string values = $"({id}, '{t}', '{d}', '{ist}', 0, '{url}', '{use}')";
@@ -148,7 +164,6 @@ namespace RecipeThesaurus
 
             if (SQL_VER)
             {
-                
                 conn.Open();
                 ReadSql(getRecipe);
             }
@@ -156,10 +171,10 @@ namespace RecipeThesaurus
             {
                 conn2.Open();
                 ReadSqlite(getRecipe);
-                
             }
         }
 
+        // Reads in recipe sql / sqlite versions
         public void ReadSql(string getRecipe)
         {
 
@@ -240,8 +255,6 @@ namespace RecipeThesaurus
                 }
             }
         }
-
-
 
         // Clears all stored recipes 
         public void ClearRecipes()
