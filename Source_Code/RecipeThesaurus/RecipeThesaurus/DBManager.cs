@@ -206,7 +206,7 @@ INSERT INTO userIngredientLikes VALUES ('nikolai', 'rice krispies');";
                 createDb();
             }
             
-            recipesManager.CreateRecipe("Nikolai");
+            //recipesManager.CreateRecipe("Nikolai"); // Changed to deal with request.form
 
             Console.WriteLine("user test:");
 

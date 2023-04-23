@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 namespace RecipeThesaurus
 {
@@ -97,32 +98,42 @@ namespace RecipeThesaurus
             return (like);
         }
         // Gets recipe information then stores
-        public void CreateRecipe(string pUsername)
+        public void CreateRecipe(string t, string d, string ing, string ist, string url, string use)
         {
-            int id = 4;
-            string name = "CreateRecipe()";
-            string desc = "Function to create a recipe";
-            string inst = "In the code";
-            string url = "null";
-            string username = "Nikolai";
-            string ingredients = "None";
+            int id = recipes.Count();
+            //string name = "createrecipe()";
+            //string desc = "function to create a recipe";
+            //string inst = "in the code";
+            //string url = "null";
+            //string username = "nikolai";
+            //string ingredients = "none";
             // need to add ingredients
 
 
             string fields = $"(recipeId, recipeName, recipeDescription, recipeInstructions, recipeLikes, imageURL, recipeAuthor)";
-            string values = $"({id}, '{name}', '{desc}', '{inst}', 0, '{url}', '{username}')";
+            string values = $"({id}, '{t}', '{d}', '{ist}', 0, '{url}', '{use}')";
             string saveRecipe = $"INSERT INTO recipes {fields} VALUES {values}";
+            string ingredients = "INSERT INTO recipeIngredients VALUES({0},'{1}');";
+            string saveIngredients = "";
+            foreach (string sub in ing.Split(','))
+            {
+                saveIngredients += String.Format(ingredients, id, sub.Trim());
+            }
 
             if(SQL_VER)
             {
                 conn.Open();
                 SqlCommand command = new SqlCommand(saveRecipe, conn);
                 command.ExecuteNonQuery();
+                command.CommandText = saveIngredients;
+                command.ExecuteNonQuery();
             }
             else
             {
                 conn2.Open();
                 SqliteCommand command = new SqliteCommand(saveRecipe, conn2);
+                command.ExecuteNonQuery();
+                command.CommandText = saveIngredients;
                 command.ExecuteNonQuery();
             }            
         }

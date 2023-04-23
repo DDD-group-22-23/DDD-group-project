@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using Microsoft.AspNetCore.Mvc;
 using RecipeThesaurus.Models;
 
@@ -54,6 +55,23 @@ public class HomeController : Controller
         ViewData["RecipeList"] = recipes;
         return View();
     }
+    public IActionResult Create()
+    {
+        return View();
+    }
+    public IActionResult CreateRecipe()
+    {
+        DBManager man = new DBManager(false);
+        string title = Request.Form["title"];
+        string description = Request.Form["description"];
+        string ingredients = Request.Form["ingredients"];
+        string instructions = Request.Form["instructions"];
+        string image = Request.Form["image"];
+        string username = "nikolai"; // Chnage to the cookie data username
+        man.recipesManager.GetRecipes(); // Needed to get the next int for id
+        man.recipesManager.CreateRecipe(title, description, ingredients, instructions, image, username);
+        return RedirectToAction("Index");
+    }
 
     public IActionResult People()
     {
@@ -70,5 +88,7 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+
 }
 
