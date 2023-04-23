@@ -166,6 +166,25 @@ namespace RecipeThesaurus
                     istCmd.ExecuteNonQuery();
                     istCmd.CommandText = "INSERT INTO recipes VALUES(1,'Wok-cooked fragrant mussels', 'Jamie Oliver had this idea while eating mussels in New York. It takes literally minutes to cook and tastes absolutely fabulous.', 'Place the mussels with a couple of lugs of olive oil in a large, very hot wok or pot. Shake around and add the rest of the ingredients, apart from the lime juice and coconut milk. Keep turning over until all the mussels have opened - throw away any that remain closed. Squeeze in the lime juice and add the coconut milk. Bring to the boil and serve immediately.',0,'url', 'Jamie Oliver')";
                     istCmd.ExecuteNonQuery();
+
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Mussels');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Garlic');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Chillies');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Ginger');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Coriander');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Sesame seed oil');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Spring Onions');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Lime juice');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(1,'Coconut milk');";
+                    istCmd.ExecuteNonQuery();
                     istCmd.CommandText = "INSERT INTO recipes VALUES(2,'Dark Jamaican Gingerbread','This cake, originally from the sugar-and-spice island of Jamaica, has sadly become a factory-made clone, but made at home it’s dark, sticky, fragrant with ginger – the real thing.', 'Begin by placing the tin of black treacle (without a lid) in a saucepan of barely simmering water to warm it and make it easier to measure. Sift the flour and spices into a large bowl, then mix the bicarbonate of soda with the milk and set it on one side. Now measure the black treacle, golden syrup, sugar and butter into a saucepan with 75ml of water, heat and gently stir until thoroughly melted and blended – don’t let it come anywhere near the boil and don’t go off and leave it! Next add the syrup mixture to the flour and spices, beating vigorously with a wooden spoon, and when the mixture is smooth, beat in the egg a little at a time, followed by the bicarbonate of soda and milk. Now pour the mixture into the prepared tin and bake on a lower shelf so that the top of the tin is aligned with the centre of the oven for 1¼–1½ hours until it’s well-risen and firm to the touch. Remove the cake from the oven and allow to cool in the tin for 5 minutes before turning out.', 0, null, 'Delia')";
                     istCmd.ExecuteNonQuery();
 

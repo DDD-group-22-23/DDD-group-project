@@ -26,7 +26,8 @@ namespace RecipeThesaurus.Controllers
         public IActionResult SaveRecipe()
         {
             DBManager man = new DBManager(false);
-            User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
+            string username = User.Claims.Where(x => x.Type == "preferred_username").ToString();
+            User user = man.userManager.getUserByUsername(username); // chnage to cookeis username
             int id = Convert.ToInt32(Request.Form["id"]);
             man.recipesManager.SaveRecipe(id, user);
             return RedirectToAction("Index");
