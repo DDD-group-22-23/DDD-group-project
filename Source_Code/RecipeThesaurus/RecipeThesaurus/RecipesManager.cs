@@ -103,6 +103,10 @@ namespace RecipeThesaurus
                 { 
                 likeRecipes.Add(recipe);
                 }
+                else if (recipe.ingredientsList.Contains(like))
+                {
+                    likeRecipes.Add(recipe);
+                }
             }
             return likeRecipes;
         }
