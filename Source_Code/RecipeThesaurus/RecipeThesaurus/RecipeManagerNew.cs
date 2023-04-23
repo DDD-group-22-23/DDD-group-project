@@ -27,12 +27,6 @@ namespace RecipeThesaurus
     }
 
 
-
-
-
-
-
-
     /// <summary>
     /// The UserManager class has a method getUserByUsername which returns a User object containing all the user's information
     /// </summary>
@@ -46,9 +40,6 @@ namespace RecipeThesaurus
         {
             conn = pConn;
         }
-
-
-
 
         /// <summary>
         /// Finds the recipe in the database and returns them in a recipe object
@@ -69,11 +60,9 @@ namespace RecipeThesaurus
             string sqlGetRecipe = $"select recipeId, recipeName, recipeDescription, recipeInstructions, recipeLikes, recipeAuthor from recipes{plusKeyPhrase};";
 
             string sqlGetRecipeIngredients = "select distinct recipeIngredients.ingredient FROM recipeIngredients where recipeIngredients.recipeId = {0};";    //gets all the ingredients in a recipe
-            
+
 
             conn.Open();
-
-            
 
             var command = conn.CreateCommand(); //for sqlite
             command.CommandText = sqlGetRecipe;
@@ -86,7 +75,7 @@ namespace RecipeThesaurus
                     RecipeNew newRecipe = new RecipeNew();
 
                     //load main fields without ingredients list
-                       
+
                     newRecipe.id = int.Parse(reader["recipeId"].ToString());
                     newRecipe.name = reader["recipeName"].ToString();
                     newRecipe.description = reader["recipeDescription"].ToString();
@@ -95,11 +84,8 @@ namespace RecipeThesaurus
                     newRecipe.recipeAuthor = reader["recipeAuthor"].ToString();
 
                     returnList.Add(newRecipe);
-
                 }
             }
-
-            
 
             foreach (RecipeNew i in returnList)
             {
@@ -113,26 +99,9 @@ namespace RecipeThesaurus
                         more = reader.Read();
                     }
                 }
-
-                
             }
-
-
             conn.Close();
-
-
             return returnList;
         }
-
-
-
-
-
-
-
     }
-
-
-
-
 }
