@@ -103,10 +103,15 @@ namespace RecipeThesaurus
                 { 
                 likeRecipes.Add(recipe);
                 }
-                else if (recipe.ingredientsList.Contains(like))
+                foreach (string ingredient in recipe.ingredientsList)
                 {
-                    likeRecipes.Add(recipe);
+                    if (ingredient.Contains(like))
+                    {
+                        likeRecipes.Add(recipe);
+                        break;
+                    }
                 }
+                
             }
             return likeRecipes;
         }
