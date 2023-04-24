@@ -2,83 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-<style>
-.recipes {
-    position: absolute;
-    width: 911px;
-    display: inline-block;
-    margin: auto;
-    left: 50%;
-    margin-left: -455px;
-}
-
-
-.recipeBox
-{
-    width:911px;
-    margin:auto;
-    font-family:sans-serif;
-    display:inline-block;
-    background:#E4ECEF;
-    color:black;
-    padding:20px;
-    margin-top: 20px;
-}
-
-
-.recipeBoxHeader
-{
-    text-align: center;
-}
-
-
-.recipeBoxHeader h1
-{
-    display:inline-block;
-    margin:10px;
-}
-
-.recipeBoxHeader::after
-{
-    content: "";
-  border: 1px solid black;
-  display: block;
-  height: 0px;
-  margin: auto;
-  margin-top:40px;
-  margin-bottom:40px;
-}
-
-
-.imgPlaceholderLeft
-{
-    display: inline-block;
-    background:black;
-    height:40px;
-    width:40px;
-    float:left;
-}
-
-.imgPlaceholderRight
-{
-    display: inline-block;
-    background:black;
-    height:40px;
-    width:40px;
-    float:right;
-
-}
-
-.recipeBox h2{
-    font-size: 30px;
-}
-
-.recipeBox li, .recipeBox p{
-    font-size: 20px;
-}
-</style>
-
+<link rel="stylesheet" href="~/css~/css/site.css" asp-append-version="true" />
 
 
 <body>
@@ -89,15 +13,32 @@
         {
             <div class="recipeBox">
 
-                <form asp-controller="Home" asp-action="SaveRecipe">
-                    <button type="submit" name="save"> Save</button>
+                
+
+                <div class="recipeBoxHeader">
+
+                <img src="/Pictures/pfp.png" class="recipeAuthor"/>
+
+                <form asp-controller="Home" asp-action="LikeRecipe">
+                    <button class="likeButton" type="submit" name="like"><img src="/Pictures/likeButton.png"/></button>
                     <input type="hidden" name="id" value="@item.id">
                 </form>
 
-                <div class="recipeBoxHeader">
+                <div class="likes">@item.likes</div>
+
+                <form asp-controller="Home" asp-action="SaveRecipe">
+                    <button class="saveButton" type="submit" name="save"><img src="/Pictures/saveButton.png"/></button>
+                    <input type="hidden" name="id" value="@item.id">
+                </form>
+
                     <h1>@item.name</h1>
+
+                    <img src="/Pictures/foodImage.png" class="recipeImage"/>
+
                     <p>@item.description</p>
                 </div>
+
+                @{if(@item.ingredientsList.Count > 0){
                 <h2>Ingredients</h2>
                 <ul>
                 @{
@@ -107,6 +48,7 @@
                     }
                 }   
                 </ul>
+                }}
 
                 <h2>Steps</h2>
                 <p>@item.instructions</p>
