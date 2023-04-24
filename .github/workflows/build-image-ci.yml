@@ -111,7 +111,7 @@ jobs:
            manifests: |
              Source_Code/k8s/0_ingress_Controller.yaml
       -
-       name: Run mainifests (default)
+       name: Run mainifests (default excluding frontend)
        uses: Azure/k8s-deploy@v4
        with:
            action: deploy
@@ -125,5 +125,16 @@ jobs:
              Source_Code/k8s/6_Backend_SearchandDB.yaml
              Source_Code/k8s/7_Backend_FusionAuth_App.yaml
              Source_Code/k8s/8_Backend_nginx.yaml
+             
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
+  
+      - name: Run mainifests (default - frontend)
+        uses: Azure/k8s-deploy@v4
+        with:
+           action: deploy
+           namespace: default
+           manifests: |
              Source_Code/k8s/9_Frontend_RecipeThesaurus_app.yaml
              Source_Code/k8s/10_Frontend_DNS_Deployment.yaml
