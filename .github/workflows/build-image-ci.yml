@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./Source_Code/RecipeThesaurus
-          file:  ./RecipeThesaurus/Dockerfile
+          file:  ./Source_Code/RecipeThesaurus/RecipeThesaurus/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
