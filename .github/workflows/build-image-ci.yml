@@ -35,7 +35,54 @@ jobs:
           push: true
           tags: |
             recipethesaurus.azurecr.io/recipethesaurus-app:latest
-
+      - name: Remove recipethesaurus Deployment
+        run: |
+          if [[ $(kubectl get deployment recipethesaurus -n default -o=name --ignore-not-found) ]]; then 
+          kubectl delete deployment recipethesaurus -n default
+          else
+          echo "could not find  deployment $SERVICE_NAME in default"
+          fi
+        shell: bash
+      - name: Remove fusionauth Deployment
+        run: |
+          if [[ $(kubectl get deployment fusionauth -n default -o=name --ignore-not-found) ]]; then 
+             kubectl delete deployment fusionauth -n default
+          else
+            echo "could not find  deployment fusionauth in default"
+          fi
+        shell: bash
+      - name: Remove mysql Deployment
+        run: |
+          if [[ $(kubectl get deployment mysql -n default -o=name --ignore-not-found) ]]; then 
+            kubectl delete deployment mysql -n default
+          else
+            echo "could not find  deployment mysql in default"
+          fi
+        shell: bash
+      - name: Remove search Deployment
+        run: |
+          if [[ $(kubectl get deployment search -n default -o=name --ignore-not-found) ]]; then 
+          kubectl delete deployment search -n default
+          else
+          echo "could not find  deployment search in default"
+          fi
+        shell: bash
+      - name: Remove external-dns Deployment
+        run: |
+          if [[ $(kubectl get deployment external-dns -n default -o=name --ignore-not-found) ]]; then 
+            kubectl delete deployment external-dns -n default
+          else
+            echo "could not find  deployment external-dns in default"
+          fi
+        shell: bash
+      - name: Remove ingress controller Deployment
+        run: |
+          if [[ $(kubectl get deployment ingress-nginx-controller -n ingress-nginx -o=name --ignore-not-found) ]]; then 
+            kubectl delete deployment ingress-nginx-controller -n ingress-nginx
+          else
+            echo "could not find  deployment ingress-nginx-controller in ingress-nginx"
+          fi
+        shell: bash
       - 
        name: Set up Kubectl
        uses: azure/setup-kubectl@v3
