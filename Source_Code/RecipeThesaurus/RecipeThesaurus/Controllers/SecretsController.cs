@@ -64,7 +64,6 @@ namespace RecipeThesaurus.Controllers
             return RedirectToAction("Index");
         }
 
-
         public IActionResult Search()
         {
             // DBManager needs to be set somewhere higher because its being recreated everywhere
