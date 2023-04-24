@@ -20,6 +20,8 @@ namespace RecipeThesaurus.Controllers
         //}
 	    public IActionResult Index()
         {
+            string username = User.Claims.Where(x => x.Type == "preferred_username").ToString();
+            ViewData["username"] = username;
             return View();
         }
 
