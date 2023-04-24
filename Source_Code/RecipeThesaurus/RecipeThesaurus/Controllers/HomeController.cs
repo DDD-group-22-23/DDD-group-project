@@ -52,6 +52,25 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
 
+    public IActionResult UnsaveRecipe()
+    {
+        DBManager man = new DBManager(false);
+        User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
+        int id = Convert.ToInt32(Request.Form["id"]);
+        man.recipesManager.UnsaveRecipe(id, user);
+        return RedirectToAction("Index");
+    }
+
+    //can add as many likes as you want for now just to make it easier
+    public IActionResult LikeRecipe()
+    {
+        DBManager man = new DBManager(false);
+        //User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
+        int id = Convert.ToInt32(Request.Form["id"]);
+        man.recipesManager.LikeRecipe(id);
+        return RedirectToAction("Index");
+    }
+
     public IActionResult Saved()
     {
         // DBManager needs to be set somewhere higher because its being recreated everywhere
@@ -65,7 +84,10 @@ public class HomeController : Controller
         ViewData["RecipeList"] = recipes;
         return View();
     }
-    public IActionResult Create()
+
+    
+
+        public IActionResult Create()
     {
         return View();
     }
