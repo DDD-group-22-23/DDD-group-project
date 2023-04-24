@@ -127,7 +127,7 @@ jobs:
              Source_Code/k8s/8_Backend_nginx.yaml
              
       - name: Sleep for 30 seconds
-        run: sleep 30s
+        run: sleep 300s
         shell: bash
   
       - name: Run mainifests (default - frontend)
