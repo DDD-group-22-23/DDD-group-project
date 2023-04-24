@@ -14,18 +14,19 @@ spec:
         app: external-dns
     spec:
       containers:
-      - name: external-dns
-        image: registry.k8s.io/external-dns/external-dns:v0.11.0
-        - --source=service
-        - --source=ingress
-        - --domain-filter=recipethesaurus.software # (optional) limit to only example.com domains; change to match the zone created above.
-        - --provider=azure
-        - --azure-resource-group=dns_rg        
-        volumeMounts:
-        - name: azure-dns-config-file
-          mountPath: /etc/kubernetes
-          readOnly: true
-      volumes:
-      - name: azure-dns-config-file
-        secret:
-          secretName: azure-dns-config-file
+        - name: external-dns
+          image: k8s.gcr.io/external-dns/external-dns:v0.11.0
+          args:
+            - --source=service
+            - --source=ingress
+            - --domain-filter=recipethesaurus.software      # (optional) limit to only example.com domains; change to match the zone created above.
+            - --provider=azure
+            - --azure-resource-group=dns_rg      # (optional) use the DNS zones from the tutorial's resource group
+          volumeMounts:
+            - name: azure-dns-config-file
+              mountPath: /etc/kubernetes
+              readOnly: true
+          volumes:
+            - name: azure-dns-config-file
+              secret:
+                secretName: azure-dns-config-file
