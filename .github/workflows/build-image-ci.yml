@@ -35,6 +35,25 @@ jobs:
           push: true
           tags: |
             recipethesaurus.azurecr.io/recipethesaurus-app:latest
+            
+      - 
+       name: Set up Kubectl
+       uses: azure/setup-kubectl@v3
+       with:
+         version: 'latest'
+      -         
+       name: connect to AKS
+       uses: actions-hub/kubectl@master
+       env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+       with:
+          args: get pods
+      - 
+       name: set context
+       uses: azure/k8s-set-context@v3
+       with:
+          method: kubeconfig
+          kubeconfig:  ${{ secrets.KUBE_CONFIG_RAW }}
       - name: Remove recipethesaurus Deployment
         run: |
           if [[ $(kubectl get deployment recipethesaurus -n default -o=name --ignore-not-found) ]]; then 
@@ -83,24 +102,6 @@ jobs:
             echo "could not find  deployment ingress-nginx-controller in ingress-nginx"
           fi
         shell: bash
-      - 
-       name: Set up Kubectl
-       uses: azure/setup-kubectl@v3
-       with:
-         version: 'latest'
-      -         
-       name: connect to AKS
-       uses: actions-hub/kubectl@master
-       env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-       with:
-          args: get pods
-      - 
-       name: set context
-       uses: azure/k8s-set-context@v3
-       with:
-          method: kubeconfig
-          kubeconfig:  ${{ secrets.KUBE_CONFIG_RAW }}
       -
        name: Run mainifests (ingress)
        uses: Azure/k8s-deploy@v4
