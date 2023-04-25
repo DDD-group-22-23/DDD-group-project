@@ -30,7 +30,7 @@
                     <div id="profile">
                         <img id="myPfp" src="https://agoralearning.co.uk/wp-content/uploads/2017/02/blank-profile-picture.png"></img>
                         @{
-                            if (User.Claims.ElementAt(3).Value == "true")
+                            if (User.Claims.Count() > 3)
                             {
                                 <div id="myName" style="float:left;">@User.Claims.ElementAt(2).Value</div>
                             }
