@@ -13,11 +13,6 @@ namespace RecipeThesaurus.Controllers
     {
         [Authorize]
         // GET: /<controller>/
-        //public IActionResult Recpies()
-        //{
-            // Not implemented - To be removed? No need to look at individual recipes
-        //    return View();
-        //}
 	    public IActionResult Index()
         {
             DBManager man = new DBManager(false);
@@ -29,10 +24,29 @@ namespace RecipeThesaurus.Controllers
         public IActionResult SaveRecipe()
         {
             DBManager man = new DBManager(false);
-            string username = "david";
-            User user = man.userManager.getUserByUsername(username); // chnage to cookeis username
+            User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
             int id = Convert.ToInt32(Request.Form["id"]);
             man.recipesManager.SaveRecipe(id, user);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult UnsaveRecipe()
+        {
+            DBManager man = new DBManager(false);
+            User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
+            int id = Convert.ToInt32(Request.Form["id"]);
+            man.recipesManager.UnsaveRecipe(id, user);
+            return RedirectToAction("Index");
+        }
+
+
+        //can add as many likes as you want for now just to make it easier
+        public IActionResult LikeRecipe()
+        {
+            DBManager man = new DBManager(false);
+            //User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
+            int id = Convert.ToInt32(Request.Form["id"]);
+            man.recipesManager.LikeRecipe(id);
             return RedirectToAction("Index");
         }
 

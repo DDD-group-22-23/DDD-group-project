@@ -31,45 +31,9 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Recommend()
-    {
-        // Not implemented
-        return View();
-    }
 
-    public IActionResult Settings()
-    {
-        // Not implemented
-        return View();
-    }
 
-    public IActionResult SaveRecipe()
-    {
-        DBManager man = new DBManager(false);
-        User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
-        int id = Convert.ToInt32(Request.Form["id"]);
-        man.recipesManager.SaveRecipe(id, user);
-        return RedirectToAction("Index");
-    }
 
-    public IActionResult UnsaveRecipe()
-    {
-        DBManager man = new DBManager(false);
-        User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
-        int id = Convert.ToInt32(Request.Form["id"]);
-        man.recipesManager.UnsaveRecipe(id, user);
-        return RedirectToAction("Index");
-    }
-
-    //can add as many likes as you want for now just to make it easier
-    public IActionResult LikeRecipe()
-    {
-        DBManager man = new DBManager(false);
-        //User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
-        int id = Convert.ToInt32(Request.Form["id"]);
-        man.recipesManager.LikeRecipe(id);
-        return RedirectToAction("Index");
-    }
 
     public IActionResult Saved()
     {
@@ -91,19 +55,7 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult CreateRecipe()
-    {
-        DBManager man = new DBManager(false);
-        string title = Request.Form["title"];
-        string description = Request.Form["description"];
-        string ingredients = Request.Form["ingredients"];
-        string instructions = Request.Form["instructions"];
-        string image = Request.Form["image"];
-        string username = "nikolai"; // Chnage to the cookie data username
-        man.recipesManager.GetRecipes(); // Needed to get the next int for id
-        man.recipesManager.CreateRecipe(title, description, ingredients, instructions, image, username);
-        return RedirectToAction("Index");
-    }
+
 
     public IActionResult People()
     {
