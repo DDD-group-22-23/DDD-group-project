@@ -55,7 +55,7 @@
                 <div style="padding:10px">
                     <!--<div class="pageButton"><a asp-area="" asp-controller="Home" asp-action="Recommend">Recommend</a></div>-->
                     @{
-                        if (User.Claims.Count() > 3)
+                        if (User.Claims.Count() >= 0)
                         {
                             <div class="pageButton"><a asp-area="" asp-controller="Secrets" asp-action="Index">Home</a></div>
                             <div class="pageButton"><a asp-area="" asp-controller="Secrets" asp-action="Saved">Saved</a></div>
