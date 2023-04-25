@@ -56,10 +56,18 @@ namespace RecipeThesaurus
         /// </summary>
         /// <param name="pUsername"></param>
         /// <returns>a User object storing all the user's data</returns>
-        public User getUserByUsername(string pUsername)
+        public User getUser(string pField, string type)
         {
-
-            string sqlGetUser = $"select username, firstname, lastname, email from users where users.username = '{pUsername}';";
+            string sqlGetUser;
+            if (type == "username")
+            {
+                sqlGetUser = $"select username, firstname, lastname, email from users where users.username = '{pField}';";
+            }
+            else
+            {
+                sqlGetUser = $"select username, firstname, lastname, email from users where users.email = '{pField}';";
+            }
+            
 
             string sqlGetUserIngredientLikes = "select distinct userIngredientLikes.ingredient FROM users INNER JOIN userIngredientLikes where userIngredientLikes.username = '{0}';";    //gets a users ingredient likes
             string sqlGetUserIngredientDislikes = "select distinct useringredientdislikes.ingredient FROM users INNER JOIN useringredientdislikes where useringredientdislikes.username = '{0}';";
@@ -128,6 +136,8 @@ namespace RecipeThesaurus
             }
             return newUser;
         }
+
+
 
         #region SQL
         public void ReadUserSql(SqlDataReader r, User u)

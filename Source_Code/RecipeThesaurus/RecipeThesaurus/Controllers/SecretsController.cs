@@ -24,7 +24,8 @@ namespace RecipeThesaurus.Controllers
         public IActionResult SaveRecipe()
         {
             DBManager man = new DBManager(false);
-            User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
+            string email = User.Claims.ElementAt(3).Value;
+            User user = man.userManager.getUser(email, "email"); // chnage to cookeis username
             int id = Convert.ToInt32(Request.Form["id"]);
             man.recipesManager.SaveRecipe(id, user);
             return RedirectToAction("Index");
@@ -33,7 +34,8 @@ namespace RecipeThesaurus.Controllers
         public IActionResult UnsaveRecipe()
         {
             DBManager man = new DBManager(false);
-            User user = man.userManager.getUserByUsername("david"); // chnage to cookeis username
+            string email = User.Claims.ElementAt(3).Value;
+            User user = man.userManager.getUser(email, "email"); // chnage to cookeis username
             int id = Convert.ToInt32(Request.Form["id"]);
             man.recipesManager.UnsaveRecipe(id, user);
             return RedirectToAction("Index");
@@ -55,8 +57,8 @@ namespace RecipeThesaurus.Controllers
             // DBManager needs to be set somewhere higher because its being recreated everywhere
 
             DBManager man = new DBManager(false);
-            string username = "david"; // change to cookies.username
-            User user = man.userManager.getUserByUsername(username);
+            string email = User.Claims.ElementAt(3).Value; // change to cookies.username
+            User user = man.userManager.getUser(email, "email");
             man.recipesManager.GetRecipes();
             List<string> like = user.savedRecipes;
             List<Recipe>? recipes = man.recipesManager.GetRecipesIds(like);
@@ -75,7 +77,9 @@ namespace RecipeThesaurus.Controllers
             string ingredients = Request.Form["ingredients"];
             string instructions = Request.Form["instructions"];
             string image = Request.Form["image"];
-            string username = "nikolai"; // Chnage to the cookie data username
+            string email = User.Claims.ElementAt(3).Value;
+            User user = man.userManager.getUser(email, "email");
+            string username = user.username; // Chnage to the cookie data username
             man.recipesManager.GetRecipes(); // Needed to get the next int for id
             man.recipesManager.CreateRecipe(title, description, ingredients, instructions, image, username);
             return RedirectToAction("Index");

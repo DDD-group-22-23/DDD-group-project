@@ -31,44 +31,6 @@ public class HomeController : Controller
         return View();
     }
 
-
-
-
-
-    public IActionResult Saved()
-    {
-        // DBManager needs to be set somewhere higher because its being recreated everywhere
-
-        DBManager man = new DBManager(false);
-        string username = "david"; // change to cookies.username
-        User user = man.userManager.getUserByUsername(username);
-        man.recipesManager.GetRecipes();
-        List<string> like = user.savedRecipes;
-        List<Recipe>? recipes = man.recipesManager.GetRecipesIds(like);
-        ViewData["RecipeList"] = recipes;
-        return View();
-    }
-
-    
-
-        public IActionResult Create()
-    {
-        return View();
-    }
-
-
-    public IActionResult People()
-    {
-        // Not implemented
-        return View();
-    }
-
-    public IActionResult Fridge()
-    {
-        // Not implemented
-        return View();
-    }
-
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

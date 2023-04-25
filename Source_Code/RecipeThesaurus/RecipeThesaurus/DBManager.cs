@@ -348,9 +348,9 @@ namespace RecipeThesaurus
                     istCmd.ExecuteNonQuery();
 
 
-                    istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 0);";
+                    istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 5);";
                     istCmd.ExecuteNonQuery();
-                    istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 2);";
+                    istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 8);";
                     istCmd.ExecuteNonQuery();
 
                     istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('jasper', 1);";
@@ -424,7 +424,7 @@ namespace RecipeThesaurus
 
             Console.WriteLine("user test:");
 
-            User dav = userManager.getUserByUsername("jasper");
+            User dav = userManager.getUser("jasper", "username");
 
             recipesManager.GetRecipes();
             Output();

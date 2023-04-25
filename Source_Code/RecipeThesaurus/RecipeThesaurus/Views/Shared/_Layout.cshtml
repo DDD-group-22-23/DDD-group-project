@@ -43,19 +43,14 @@
                     </div>
             
                     <form asp-controller="Secrets" asp-action="Search">
-                    <input class="searchBar" type="text" placeholder="Search.." name="search" onsubmit="" asp-controller="Home" >
-
-                  </form>
-
-      
-
-
+                        <input class="searchBar" type="text" placeholder="Search.." name="search" onsubmit="" asp-controller="Home" >
+                    </form>
                 </div>
         
                 <div style="padding:10px">
                     <!--<div class="pageButton"><a asp-area="" asp-controller="Home" asp-action="Recommend">Recommend</a></div>-->
                     @{
-                        if (User.Claims.Count() > 2)
+                        if (User.Claims.Count() >= 0)
                         {
                             <div class="pageButton"><a asp-area="" asp-controller="Secrets" asp-action="Index">Home</a></div>
                             <div class="pageButton"><a asp-area="" asp-controller="Secrets" asp-action="Saved">Saved</a></div>
