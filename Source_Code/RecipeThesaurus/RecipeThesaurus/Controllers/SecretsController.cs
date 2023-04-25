@@ -76,7 +76,7 @@ namespace RecipeThesaurus.Controllers
             string like = Request.Form["search"];
             List<Recipe>? recipes = man.recipesManager.GetRecipesLike(like);
             ViewData["Target"] = like;
-            ViewData["List"] = recipes;
+            ViewData["RecipeList"] = recipes;
             return View();
         }
     }
