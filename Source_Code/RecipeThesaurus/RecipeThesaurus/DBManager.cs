@@ -170,6 +170,54 @@ namespace RecipeThesaurus
                     istCmd.ExecuteNonQuery();
 
 
+
+
+                    //adding some example recipes
+                    //istCmd.CommandText = "INSERT INTO recipes VALUES(ID,NAME,DESCRIPTION,STEPS, LIKES, null, AUTHOR)";
+                    //istCmd.ExecuteNonQuery();
+
+                    istCmd.CommandText = "INSERT INTO recipes VALUES(3,'Beans on toast',null,'1.Put beans in a bowl.\n2.Microwave them\n3.toast bread\n4.Pour Beans on toast.\n5.eat the beans on toast', 66, null, 'Fred')";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(3,'baked beans');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(3,'bread');";
+                    istCmd.ExecuteNonQuery();
+
+
+
+                    istCmd.CommandText = "INSERT INTO recipes VALUES(4,      'Roasted tomato, basil and parmesan quiche'         ,          'A taste of summer, this quiche is full of Italian flavours and is perfect for dinner in the garden'           ,        'STEP 1 To make the pastry, tip the flour and butter into a bowl, then rub together with your fingertips until completely mixed and crumbly.Add 8 tbsp cold water, then bring everything together with your hands until just combined. Roll into a ball and use straight away or chill for up to 2 days.The pastry can also be frozen for up to a month.\nSTEP 2 Roll out the pastry on a lightly floured surface to a round about 5cm larger than a 25cm tin.Use your rolling pin to lift it up, then drape over the tart case so there is an overhang of pastry on the sides.Using a small ball of pastry scraps, push the pastry into the corners of the tin.Chill in the fridge or freezer for 20 mins.Heat oven to 200C / fan 180C / gas 6.\nSTEP 3 In a small roasting tin, drizzle the tomatoes with olive oil and season with salt and pepper.Put the tomatoes in a low shelf of the oven.'               ,       126        ,         null       ,      'Barney Desmazery');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(4,'olive oil');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(4,'permesan cheese');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(4,'eggs');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(4,'double cream');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(4,'cherry tomatoes');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(4,'basil');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(4,'flour');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(4,'butter');";
+                    istCmd.ExecuteNonQuery();
+
+
+
+                    istCmd.CommandText = "INSERT INTO recipes VALUES(5,'Vegan mushroom and potato hash',  'Make this mushroom and potato hash for a healthier breakfast. Mushrooms are a great addition in a vegan diet, as theyre one of the few plant-based sources of vitamin D'  ,   'STEP 1\nTip the oats and soya milk into a large bowl and blitz using a hand blender to break down the oats to a less coarse texture. Set aside for 10 mins to soak.\n\nSTEP 2\nMeanwhile, boil the potatoes for 5 mins, then drain.Heat the oil in a large non - stick frying pan over a medium heat, and cook the mushrooms, onion and paprika for a few minutes until softened.Tip in the potatoes and cook for 10 mins, turning the mixture over every now and then.Stir in the halved tomatoes and leave to cook for 5 mins.\n\nSTEP 3\nThe oat mixture should now be stiff.Work in the baking powder using your hands, then halve the mixture.With wet hands, press out one half of the mixture on a plastic chopping board to make a thin disc, like a pancake.Carefully lift it off with a palette knife and cook in a dry non - stick frying pan for 2 mins on each side.Remove to a plate, and repeat with the other half.Put the oat thins on two plates and top with the hash to serve.'   , 23, null, 'Sara Buenfeld');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(5,'oats');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(5,'soya milk');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(5,'mushrooms');";
+                    istCmd.ExecuteNonQuery();
+                    istCmd.CommandText = "INSERT INTO recipeIngredients VALUES(5,'potato');";
+                    istCmd.ExecuteNonQuery();
+
+
                     istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 0);";
                     istCmd.ExecuteNonQuery();
                     istCmd.CommandText = "INSERT INTO savedRecipes VALUES ('david', 2);";
