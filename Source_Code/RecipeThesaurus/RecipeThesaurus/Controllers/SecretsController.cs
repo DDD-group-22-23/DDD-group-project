@@ -100,6 +100,21 @@ namespace RecipeThesaurus.Controllers
             ViewData["RecipeList"] = recipes;
             return View();
         }
+	public IActionResult Logout()
+        {
+		var url = "http://backoffice.recipethesaurus.software/oauth2/logout";
+
+var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+httpRequest.Method = "POST";
+
+httpRequest.ContentType = "application/json";
+httpRequest.Headers["Content-Length"] = "0";
+var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+{
+   var result = streamReader.ReadToEnd();
+}
+	}
     }
 }
 
