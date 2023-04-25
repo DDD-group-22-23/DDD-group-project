@@ -78,6 +78,53 @@ namespace RecipeThesaurus
             }
         }
 
+
+
+
+        public void LikeRecipe(int id)
+        {
+            string getRecipe = $"UPDATE recipes SET recipeLikes = (recipeLikes + 1) WHERE recipeID = {id};";
+            if (SQL_VER)
+            {
+            }
+            else
+            {
+                conn2.Open();
+                SqliteCommand command = new SqliteCommand(getRecipe, conn2);
+                command.ExecuteNonQuery();
+            }
+        }
+
+
+
+
+        public void UnsaveRecipe(int id, User user)
+        {
+            if (user.savedRecipes.Contains(id.ToString()))
+            {
+            
+
+
+            string saveRecipe = $"DELETE FROM savedRecipes WHERE recipeId = {id};";
+            if (SQL_VER)
+            {
+                SqlCommand command = new SqlCommand(saveRecipe, conn);
+                command.ExecuteNonQuery();
+            }
+            else
+            {
+                SqliteCommand command = new SqliteCommand(saveRecipe, conn2);
+                command.ExecuteNonQuery();
+            }
+            }
+        }
+
+
+
+
+
+
+
         // Searches all recipes for a string matching the query
         public List<Recipe>? GetRecipesLike(string like)
         {
