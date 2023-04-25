@@ -29,7 +29,17 @@
     
                     <div id="profile">
                         <img id="myPfp" src="https://agoralearning.co.uk/wp-content/uploads/2017/02/blank-profile-picture.png"></img>
-                        <div id="myName" style="float:left;">David</div>
+                        @{
+                            if (User.Claims.ElementAt(3).Value != "true")
+                            {
+                                <div id="myName" style="float:left;">@User.Claims.ElementAt(2).Value</div>
+                            }
+                            else
+                            {
+                                <div id="myName" style="float:left;">Sign in</div>
+                            }
+                        }
+                        
                     </div>
             
                     <form asp-controller="Secrets" asp-action="Search">

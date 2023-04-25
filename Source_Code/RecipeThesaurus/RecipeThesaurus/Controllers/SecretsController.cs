@@ -23,8 +23,6 @@ namespace RecipeThesaurus.Controllers
             DBManager man = new DBManager(false);
             man.recipesManager.GetRecipes();
             ViewData["RecipeList"] = man.recipesManager.recipes;
-            string username = User.Claims.Where(x => x.Type == "preferred_username").ToString();
-            ViewData["username"] = username;
             return View();
         }
 
