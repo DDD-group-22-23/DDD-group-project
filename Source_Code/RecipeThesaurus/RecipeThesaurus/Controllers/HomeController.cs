@@ -19,10 +19,10 @@ public class HomeController : Controller
     {
         // DBManager needs to be set somewhere higher because its being recreated everywhere
 
-        // Connection needs to be set up
-        DBManager man = new DBManager(false);
-        man.recipesManager.GetRecipes();
-        ViewData["RecipeList"] = man.recipesManager.recipes;
+        if (User.Claims.Count() > 3)
+        {
+            return RedirectToAction("Index", "Secrets", new { area = "Admin" });
+        }
         return View();
     }
 
