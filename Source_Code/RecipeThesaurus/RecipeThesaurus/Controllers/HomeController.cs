@@ -17,8 +17,6 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        // DBManager needs to be set somewhere higher because its being recreated everywhere
-
         if (User.Claims.Count() > 3)
         {
             return RedirectToAction("Index", "Secrets", new { area = "Admin" });

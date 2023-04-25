@@ -63,6 +63,7 @@ namespace RecipeThesaurus.Controllers
             man.recipesManager.GetRecipes();
             List<string> like = user.savedRecipes;
             List<Recipe>? recipes = man.recipesManager.GetRecipesIds(like);
+            ViewData["Name"] = user.firstName;
             ViewData["RecipeList"] = recipes;
             return View();
         }
