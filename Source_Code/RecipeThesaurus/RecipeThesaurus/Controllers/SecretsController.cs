@@ -114,6 +114,7 @@ using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
 {
    var result = streamReader.ReadToEnd();
 }
+return RedirectToAction("Index");
 	}
     }
 }
