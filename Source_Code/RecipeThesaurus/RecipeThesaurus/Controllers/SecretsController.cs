@@ -28,20 +28,13 @@ namespace RecipeThesaurus.Controllers
             string email = User.Claims.ElementAt(3).Value;
             User user = man.userManager.getUser(email, "email");
             int id = Convert.ToInt32(Request.Form["id"]);
-            man.recipesManager.SaveRecipe(id, user);
+            ViewData["id"] = id;
+            if (man.recipesManager.SaveRecipe(id, user))
+            {
+                man.recipesManager.UnsaveRecipe(id, user);
+            }
             return RedirectToAction("Index");
         }
-
-        public IActionResult UnsaveRecipe()
-        {
-            DBManager man = new DBManager(false);
-            string email = User.Claims.ElementAt(3).Value;
-            User user = man.userManager.getUser(email, "email");
-            int id = Convert.ToInt32(Request.Form["id"]);
-            man.recipesManager.UnsaveRecipe(id, user);
-            return RedirectToAction("Index");
-        }
-
 
         //can add as many likes as you want for now just to make it easier
         public IActionResult LikeRecipe()

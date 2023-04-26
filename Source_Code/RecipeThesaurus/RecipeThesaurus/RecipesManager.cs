@@ -57,11 +57,11 @@ namespace RecipeThesaurus
             conn2 = con;
         }
 
-        public void SaveRecipe(int id, User user)
+        public bool SaveRecipe(int id, User user)
         {
             if (user.savedRecipes.Contains(id.ToString()))
             {
-                return; // stops duplicate saved
+                return true; // Returns to delete save
             }
             
 
@@ -76,6 +76,7 @@ namespace RecipeThesaurus
                 SqliteCommand command = new SqliteCommand(saveRecipe, conn2);
                 command.ExecuteNonQuery();
             }
+            return false;
         }
 
 
@@ -105,7 +106,7 @@ namespace RecipeThesaurus
             
 
 
-            string saveRecipe = $"DELETE FROM savedRecipes WHERE recipeId = {id};";
+            string saveRecipe = $"DELETE FROM savedRecipes WHERE username = '{user.username}' AND recipeId = {id};";
             if (SQL_VER)
             {
                 SqlCommand command = new SqlCommand(saveRecipe, conn);
