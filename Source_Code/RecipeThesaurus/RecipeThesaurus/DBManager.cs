@@ -424,7 +424,7 @@ namespace RecipeThesaurus
 
             Console.WriteLine("user test:");
 
-            User dav = userManager.getUser("caitlin@RecipeThesaurus.software", "email");
+            User dav = userManager.getUser("caitlin@recipethesaurus.software", "email");
 
             recipesManager.GetRecipes();
             Output();
