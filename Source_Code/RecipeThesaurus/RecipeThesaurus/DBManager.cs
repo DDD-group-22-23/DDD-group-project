@@ -119,10 +119,10 @@ namespace RecipeThesaurus
                 createDatabase.ExecuteNonQuery();
 
                 var fillDatabase = conn2.CreateCommand();
-                fillDatabase.CommandText = @"INSERT INTO users VALUES ('jasper', 'jasper', 'Johnson', 'jasper@RecipeThesaurus.software', null);
-                INSERT INTO users VALUES ('tanika', 'Tankia', 'Astley', 'tanika@RecipeThesaurus.software', null);
-                INSERT INTO users VALUES ('fernando', 'fernando', 'Ansley', 'fernando@RecipeThesaurus.software', null);
-                INSERT INTO users VALUES ('caitlin', 'Caitlin', 'Ashpool', 'caitlin@RecipeThesaurus.software', null);
+                fillDatabase.CommandText = @"INSERT INTO users VALUES ('jasper', 'jasper', 'Johnson', 'jasper@recipethesaurus.software', null);
+                INSERT INTO users VALUES ('tanika', 'Tankia', 'Astley', 'tanika@recipethesaurus.software', null);
+                INSERT INTO users VALUES ('fernando', 'fernando', 'Ansley', 'fernando@recipethesaurus.software', null);
+                INSERT INTO users VALUES ('caitlin', 'Caitlin', 'Ashpool', 'caitlin@recipethesaurus.software', null);
                 INSERT INTO users VALUES ('david', 'David', 'Cain', 'd.p.cain-2021@hull.ac.uk', null);
                 INSERT INTO users VALUES ('nikolai', 'Nikolai', 'Valkamo', 'n.valkamo-2021@hull.ac.uk', null);
                 INSERT INTO users VALUES ('rowan', 'Rowan', 'Clark', 'matthew.clark-2021@hull.ac.uk', null);
@@ -424,7 +424,7 @@ namespace RecipeThesaurus
 
             Console.WriteLine("user test:");
 
-            User dav = userManager.getUser("n.valkamo-2021@hull.ac.uk", "email");
+            User dav = userManager.getUser("caitlin@RecipeThesaurus.software", "email");
 
             recipesManager.GetRecipes();
             Output();
